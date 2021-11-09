@@ -1,0 +1,117 @@
+.ti-select {
+    width: 100%;
+    position: relative;
+
+    &.is-disabled{
+        .ti-select-box{
+            .ti-select--inner{
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .ti-select-box {
+        width: 100%;
+        position: relative;
+
+        .ti-select--inner {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            font-size: $ti-font-14;
+            cursor: pointer;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: $ti-radius-base;
+            border: 1px solid $ti-c;
+            padding: 0px 40px 0px 10px;
+
+            &:focus {
+                border: 2px solid $ti-blue;
+            }
+
+            &::-webkit-input-placeholder {
+                color: $ti-c;
+            }
+
+            &::-moz-input-placeholder {
+                color: $ti-c;
+            }
+
+            &::-ms-input-placeholder {
+                color: $ti-c;
+            }
+        }
+
+        .ti-down-arrow {
+            width: 40px;
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+            color: $ti-c;
+            text-align: center;
+            font-size: $ti-font-14;
+            user-select: none;
+            position: absolute;
+            right: 0px;
+            transition: transform 0.3s;
+            pointer-events: none;
+
+            &.is-reserve {
+                transform: rotate(180deg) !important;
+            }
+        }
+    }
+
+    .ti-select-dropdown {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        z-index: 2000;
+        top: 50px;
+        border: 1px solid $ti-e;
+        border-radius: $ti-radius-base;
+        background-color: $ti-white;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: calc(50% - 10px);
+            transform: translateX(-50%) rotate(45deg);
+            transform-origin: center;
+            width: 10px;
+            height: 10px;
+            border: 1px solid $ti-e;
+            background-color: $ti-white;
+            box-sizing: border-box;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+
+        }
+
+        .ti-select-options {
+            width: 100%;
+            height: 100%;
+            max-height: 180px;
+            overflow: auto;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            padding: 5px 0px;
+            .ti-select-option-item{
+                font-size: $ti-font-14;
+                cursor: pointer;
+                padding: 5px 10px;
+                &:hover{
+                    background-color: $ti-light-blue;
+                }
+                &.active{
+                    color: $ti-blue;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

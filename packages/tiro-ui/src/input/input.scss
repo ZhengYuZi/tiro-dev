@@ -1,0 +1,50 @@
+.ti-input {
+    width: 100%;
+
+    &.is-disabled {
+        .ti-input-box {
+            .ti-input--inner {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .ti-input-box {
+        width: 100%;
+        position: relative;
+
+        .ti-input--inner {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            font-size: $ti-font-14;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: $ti-radius-base;
+            border: 1px solid $ti-c;
+            padding: 0px 10px;
+
+            &.is-sign {
+                padding: 0px 25px 0px 10px !important;
+            }
+
+            &:focus {
+                border: 2px solid $ti-blue;
+            }
+        }
+
+        .ti-input--icon {
+            height: 35px;
+            line-height: 35px;
+            color: $ti-c;
+            font-size: $ti-font-14;
+            cursor: pointer;
+            position: absolute;
+            right: 7px;
+
+            &:hover {
+                color: $ti-a;
+            }
+        }
+    }
+}
