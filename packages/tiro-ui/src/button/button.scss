@@ -1,0 +1,60 @@
+.ti-button{
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    font-size: $ti-font-14;
+    font-weight: 500;
+    border: none;
+    border-radius: $ti-radius-base;
+    padding: 8px 30px;
+
+    &.ti-button--default{
+        border: 1px solid #ccc;
+        background-color: transparent;
+        &:hover{
+            border: 1px solid $ti-blue;
+            background-color: $ti-light-blue;
+            color: $ti-blue;
+        }
+        &:focus{
+            border: 1px solid $ti-blue;
+            background-color: $ti-light-blue;
+            color: $ti-blue;
+        }
+        &:active{
+            border: 2px solid $ti-blue;
+        }
+    }
+
+    &.ti-button--light{
+        background-color: $ti-light-blue;
+        border: 1px solid $ti-blue;
+        color: $ti-blue;
+        &:hover{
+            background-color: $ti-blue;
+            color: $ti-white;
+        }
+        &:focus{
+            background-color: $ti-blue;
+            color: $ti-white;
+        }
+        &:active{
+            filter: brightness(110%);
+        }
+    }
+
+    &.ti-button--fill{
+        background-color: $ti-blue;
+        color: $ti-white;
+        &:hover{
+            filter: brightness(110%);
+        }
+        &:focus{
+            filter: brightness(110%);
+        }
+        &:active{
+            filter: brightness(100%);
+        }
+    }
+}

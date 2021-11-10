@@ -1,6 +1,8 @@
 import type { App } from 'vue'
 import Select from './src/select/Select.vue'
 import Input from './src/input/Input.vue'
+import Card from './src/card/Card.vue'
+import Button from './src/button/Button.vue'
 
 const TiroUi:any = {}
 
@@ -11,6 +13,12 @@ const components = [
     },{
         name: 'ti-input',
         component: Input
+    },{
+        name: 'ti-card',
+        component: Card
+    },{
+        name: 'ti-button',
+        component: Button
     }
 ]
 
