@@ -27,7 +27,7 @@
             padding: 0px 40px 0px 10px;
 
             &:focus {
-                border: 2px solid $ti-blue;
+                border: 2px solid $ti-base;
             }
 
             &::-webkit-input-placeholder {
@@ -108,7 +108,7 @@
                     background-color: $ti-light-blue;
                 }
                 &.active{
-                    color: $ti-blue;
+                    color: $ti-base;
                     font-weight: 500;
                 }
             }

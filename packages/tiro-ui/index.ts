@@ -3,6 +3,7 @@ import Select from './src/select/Select.vue'
 import Input from './src/input/Input.vue'
 import Card from './src/card/Card.vue'
 import Button from './src/button/Button.vue'
+import Image from './src/image/Image.vue'
 
 const TiroUi:any = {}
 
@@ -19,11 +20,14 @@ const components = [
     },{
         name: 'ti-button',
         component: Button
+    },{
+        name: 'ti-image',
+        component: Image
     }
 ]
 
 TiroUi.install = function (app: App) {
-    components.forEach(ti=>{
+    components.map(ti=>{
         app.component(ti.name, ti.component)
     })
 }

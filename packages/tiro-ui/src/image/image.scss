@@ -1,0 +1,24 @@
+.ti-image{
+    position: relative;
+
+    &--inner{
+        width: 100%;
+        height: 100%;
+    }
+
+    &-error{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: $ti-white;
+        background-color: $ti-e;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        user-select: none;
+    }
+}

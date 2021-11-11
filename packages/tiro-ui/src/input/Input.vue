@@ -109,6 +109,7 @@ const clearValue = () => {
   emit("clear", props.modelValue)
   emit("update:modelValue", "")
 }
+
 </script>
 
 <style lang="scss" scoped>

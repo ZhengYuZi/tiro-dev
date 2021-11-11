@@ -1,12 +1,12 @@
 <template>
     <button
         class="ti-button"
-        :class="[`ti-button--${type}`]"
+        :class="[`ti-button--${type}`, disabled ? 'is-disabled':'']"
         :style="`border-radius:${borderRadius}px`"
         type="button"
     >
         <span>
-            <slot>点击</slot>
+            <slot></slot>
         </span>
     </button>
 </template>
@@ -22,6 +22,10 @@ const props = defineProps({
     },
     borderRadius: {
         type: Number
+    },
+    disabled: {
+        type: Boolean,
+        default: false
     }
 })
 </script>

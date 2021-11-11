@@ -8,53 +8,85 @@
     border: none;
     border-radius: $ti-radius-base;
     padding: 8px 30px;
+    box-sizing: border-box;
+    text-transform: none;
 
     &.ti-button--default{
         border: 1px solid #ccc;
         background-color: transparent;
-        &:hover{
-            border: 1px solid $ti-blue;
-            background-color: $ti-light-blue;
-            color: $ti-blue;
-        }
-        &:focus{
-            border: 1px solid $ti-blue;
-            background-color: $ti-light-blue;
-            color: $ti-blue;
-        }
-        &:active{
-            border: 2px solid $ti-blue;
-        }
     }
 
     &.ti-button--light{
         background-color: $ti-light-blue;
-        border: 1px solid $ti-blue;
-        color: $ti-blue;
-        &:hover{
-            background-color: $ti-blue;
-            color: $ti-white;
-        }
-        &:focus{
-            background-color: $ti-blue;
-            color: $ti-white;
-        }
-        &:active{
-            filter: brightness(110%);
-        }
+        border: 1px solid $ti-base;
+        color: $ti-base;
     }
 
     &.ti-button--fill{
-        background-color: $ti-blue;
+        background-color: $ti-base;
+        border: 1px solid $ti-base;
         color: $ti-white;
-        &:hover{
-            filter: brightness(110%);
+    }
+
+    &.is-disabled{
+        cursor: not-allowed;
+        &.ti-button--default{
+            border: 1px solid $ti-c;
+            color: $ti-c;
         }
-        &:focus{
-            filter: brightness(110%);
+        &.ti-button--light{
+            color: #5d82d363;
+            border: 1px solid $ti-shadow-blue;
+            background-color: #5d82d323;
         }
-        &:active{
-            filter: brightness(100%);
+        &.ti-button--fill{
+            color: $ti-white;
+            background-color: $ti-base-b;
+            border: 1px solid $ti-base-b;
+        }
+    }
+
+    &:not(.is-disabled){
+        &.ti-button--default{
+            &:hover{
+                border: 1px solid #5d82d369;
+                background-color: $ti-light-blue;
+                color: $ti-base;
+            }
+            &:focus{
+                border: 1px solid #5d82d369;
+                background-color: $ti-light-blue;
+                color: $ti-base;
+            }
+            &:active{
+                border: 1px solid $ti-base;
+            }
+        }
+    
+        &.ti-button--light{
+            &:hover{
+                background-color: $ti-base;
+                color: $ti-white;
+            }
+            &:focus{
+                background-color: $ti-base;
+                color: $ti-white;
+            }
+            &:active{
+                filter: brightness(110%);
+            }
+        }
+    
+        &.ti-button--fill{
+            &:hover{
+                filter: brightness(110%);
+            }
+            &:focus{
+                filter: brightness(110%);
+            }
+            &:active{
+                filter: brightness(100%);
+            }
         }
     }
 }

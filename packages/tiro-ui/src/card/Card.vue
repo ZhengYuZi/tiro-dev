@@ -1,8 +1,10 @@
 <template>
     <div class="ti-card" :class="[tiro ? 'tiro':'', shadow + '-shadow']">
         <div class="ti-card--inner">
-            <div class="ti-card--header" ref="header" v-if="isHeader">
-                <slot name="header"></slot>
+            <div class="ti-card--header" v-if="$slots.header">
+                <slot name="header">
+                    <span>标题</span>
+                </slot>
             </div>
             <div class="el-card__body">
                 <slot></slot>
@@ -12,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 
 const props = defineProps({
     tiro: {
@@ -23,13 +24,6 @@ const props = defineProps({
         type: String,
         default: 'always'
     }
-})
-
-const header = ref(null)
-const isHeader = ref(true)
-
-onMounted(()=>{
-    if(!header.value.innerHTML) isHeader.value = false
 })
 
 </script>

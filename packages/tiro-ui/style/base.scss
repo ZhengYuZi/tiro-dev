@@ -15,9 +15,13 @@
 }
 
 // base color
-$ti-blue: #5d82d3;
-$ti-shadow-blue: #5d82d33d;
-$ti-light-blue: #aec8ff25;
+$ti-base: #5d82d3;
+$ti-base-a: rgb(126, 153, 211);
+$ti-base-b: rgb(155, 180, 229);
+$ti-base-c: rgb(172, 194, 238);
+$ti-base-d: rgb(193, 212, 250);
+$ti-shadow-blue: rgba(93, 130, 211, 0.3);
+$ti-light-blue: rgb(193, 212, 250, 0.2);
 $ti-white: #FFFFFF;
 $ti-c: #CCCCCC;
 $ti-a: #AAAAAA;
