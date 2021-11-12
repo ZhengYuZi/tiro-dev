@@ -24,9 +24,13 @@
             border: 1px solid $ti-c;
             padding: 0px 10px;
 
-            &.is-sign {
-                padding: 0px 25px 0px 10px !important;
-            }
+            // &.is-clearable {
+            //     padding-right: 25px;
+            // }
+
+            // &.is-password {
+            //     padding-right: 25px;
+            // }
 
             &:focus {
                 border: 2px solid $ti-base;
@@ -40,10 +44,13 @@
             font-size: $ti-font-14;
             cursor: pointer;
             position: absolute;
+            top: 0;
             right: 7px;
 
-            &:hover {
-                color: $ti-a;
+            >*{
+                &:hover {
+                    color: $ti-a;
+                }
             }
         }
     }

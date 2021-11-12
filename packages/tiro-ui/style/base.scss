@@ -1,18 +1,3 @@
-@font-face {
-    font-family: 'iconfont';
-    /* Project id 2623434 */
-    src: url('//at.alicdn.com/t/font_2623434_h2pytrf3gmq.woff2?t=1635495347355') format('woff2'),
-        url('//at.alicdn.com/t/font_2623434_h2pytrf3gmq.woff?t=1635495347355') format('woff'),
-        url('//at.alicdn.com/t/font_2623434_h2pytrf3gmq.ttf?t=1635495347355') format('truetype');
-}
-
-.ti-icon {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 // base color
 $ti-base: #5d82d3;

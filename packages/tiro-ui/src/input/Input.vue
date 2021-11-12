@@ -7,9 +7,9 @@
     <div class="ti-input-box">
       <input
         class="ti-input--inner"
-        :class="[clearable ? 'is-sign' : null]"
+        :class="[clearable ? 'is-clearable' : null, type === types.password ? 'is-password' : null]"
         :style="`border-radius:${borderRadius}px`"
-        :type="type"
+        :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
         @focus="inputFocus"
@@ -20,17 +20,16 @@
         :maxlength="maxlength"
         :minlength="minlength"
       />
-      <span class="ti-input--icon ti-icon" v-if="clearable && modelValue && clearIsShow">
-        <span @mousedown.prevent="clearValue">&#xe785;</span>
-        <span>&#xe8bf;</span>
-      </span>
-      <!-- <span class="ti-input--icon ti-icon" v-if="type === types.password">&#xe8bf;</span> -->
+      <div class="ti-input--icon">
+        <ti-icon class="icon-delete" v-if="modelValue && clearable" @mousedown.prevent="clearValue"></ti-icon>
+        <ti-icon class="icon-eye" v-if="type === types.password && modelValue" @mousedown.prevent ="showWord"></ti-icon>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, Ref, ref } from "vue"
+import { onMounted, PropType, Ref, ref } from "vue"
 import { ITypes, IType } from "../../types/input"
 
 const emit = defineEmits([
@@ -39,15 +38,15 @@ const emit = defineEmits([
   "focus",
   "blur",
   "clear",
-  "update:modelValue",
+  "update:modelValue"
 ])
 
 const clearIsShow: Ref<boolean> = ref(false)
+const inputType: Ref<string> = ref('text')
 
 const types: ITypes = {
   text: "text",
   password: "password",
-  textarea: "textarea",
 }
 
 const props = defineProps({
@@ -85,6 +84,10 @@ const props = defineProps({
   },
 })
 
+onMounted(()=>{
+  inputType.value = props.type
+})
+
 const inputFocus = (e: Event) => {
   clearIsShow.value = true
   emit("focus", e)
@@ -110,6 +113,9 @@ const clearValue = () => {
   emit("update:modelValue", "")
 }
 
+const showWord = ()=>{
+  inputType.value = inputType.value === types.password ? types.text : types.password
+}
 </script>
 
 <style lang="scss" scoped>

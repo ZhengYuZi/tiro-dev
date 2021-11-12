@@ -28,7 +28,10 @@ importers:
       '@tiro/ui': link:../tiro-ui
 
   packages/tiro-ui:
-    specifiers: {}
+    specifiers:
+      '@tiro/icons': workspace:^1.0.0
+    dependencies:
+      '@tiro/icons': link:../tiro-icons
 
 packages:
 

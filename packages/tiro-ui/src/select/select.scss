@@ -43,7 +43,7 @@
             }
         }
 
-        .ti-down-arrow {
+        .icon-drop-down {
             width: 40px;
             height: 35px;
             line-height: 35px;
@@ -53,6 +53,7 @@
             font-size: $ti-font-14;
             user-select: none;
             position: absolute;
+            top: 0;
             right: 0px;
             transition: transform 0.3s;
             pointer-events: none;

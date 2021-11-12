@@ -15,11 +15,11 @@
 			<div>Input 输入框</div>
 		</template>
 		<p>默认</p>
-		<ti-input width="100%" clearable type="text"></ti-input>
+		<ti-input width="100%" v-model="inputValue" clearable type="text" @clear="clear"></ti-input>
 		<p>密码框</p>
-		<ti-input width="100%" multiple clearable type="password"></ti-input>
+		<ti-input v-model="password" width="100%" clearable type="password"></ti-input>
 		<p>禁用</p>
-		<ti-input disabled width="100%" clearable type="text"></ti-input>
+		<ti-input disabled width="100%" type="text"></ti-input>
 	</ti-card>
 	<ti-card class="card-box">
 		<template #header>
@@ -48,6 +48,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const password = ref('')
+
 const options = ref([
 	{
 		value: 'mihoutao',
@@ -71,7 +73,7 @@ const handleSelect = (value: string) => {
 const inputValue = ref('')
 
 const handleInput = (value: string) => {
-	console.log(value)
+	console.log(password.value)
 }
 
 const handleChange = (value: string) => {

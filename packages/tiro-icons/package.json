@@ -1,15 +1,12 @@
 {
-  "name": "@tiro/ui",
+  "name": "@tiro/icons",
   "author": "ZhengYuZi",
   "version": "1.0.0",
-  "description": "",
   "main": "./index.ts",
+  "description": "",
   "scripts": {},
-  "license": "MIT",
   "peerDependencies": {
     "vue": "^3.2.6"
   },
-  "dependencies": {
-    "@tiro/icons": "workspace:^1.0.0"
-  }
+  "license": "MIT"
 }

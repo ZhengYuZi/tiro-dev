@@ -4,11 +4,15 @@ import Input from './src/input/Input.vue'
 import Card from './src/card/Card.vue'
 import Button from './src/button/Button.vue'
 import Image from './src/image/Image.vue'
+import Icon from '@tiro/icons/lib/index.vue'
 
 const TiroUi:any = {}
 
 const components = [
     {
+        name: 'ti-icon',
+        component: Icon
+    },{
         name: 'ti-select',
         component: Select
     },{

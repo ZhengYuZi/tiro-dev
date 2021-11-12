@@ -11,6 +11,11 @@
     box-sizing: border-box;
     text-transform: none;
 
+    .ti-button--inner{
+        display: flex;
+        align-items: center;
+    }
+
     &.ti-button--default{
         border: 1px solid #ccc;
         background-color: transparent;
