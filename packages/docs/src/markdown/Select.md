@@ -1,6 +1,23 @@
-# Select 选择器
+<script setup>
+import Input from '../examples/Input.vue'
+</script>
 
-## Attributes
+### 默认
+
+<Input />
+
+```vue
+<template>
+    <ti-input v-model="value" width="200px"></ti-input>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+const value = ref('')
+</script>
+```
+
+### Attributes
 
 | **属性Attribute** | **描述Description** | **类型Type** |     **值Accepted Values**      | **默认值**Defaults |
 | :-----------: | :-----------------: | :------: | :------------------------: | :------------: |
@@ -9,4 +26,3 @@
 |   disabled    |      是否禁用       | boolean  |             —              |     false      |
 |     width     |     选择框宽度      |  string  |     '100px' or '100%'      |     '100%'     |
 |    options    |     选择框数据      |  array   | [{value:1,label:'猕猴桃'}] |       []       |
-

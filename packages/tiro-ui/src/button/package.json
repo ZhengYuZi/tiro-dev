@@ -1,0 +1,12 @@
+{
+  "name": "@tiro/button",
+  "author": "ZhengYuZi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.ts",
+  "scripts": {},
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.2.6"
+  }
+}
