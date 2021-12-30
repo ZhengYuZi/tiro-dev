@@ -1,0 +1,351 @@
+
+/**
+ * MWeb 包裹 markdown 的容器是 .content
+ * Typora 中是 #write
+ */
+.content {
+  line-height: 1.68;
+  -webkit-text-size-adjust: 100%;
+  margin: 0px auto;
+  font-size: 16px;
+  /* spacing */
+  /* block */
+  /* list */
+  /* inline */
+  /* table */
+  /* svg */
+}
+.content * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.content > *:first-child {
+  margin-top: 0 !important;
+}
+.content > *:last-child {
+  margin-top: 0 !important;
+}
+.content p,
+.content details,
+.content dl,
+.content ol,
+.content ul,
+.content xmp,
+.content plaintext,
+.content listing,
+.content blockquote,
+.content table,
+.content figure,
+.content hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.content h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content h6 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.content p {
+  margin-left: 0;
+  margin-right: 0;
+}
+.content xmp,
+.content plaintext,
+.content listing {
+  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, "Courier New";
+}
+.content blockquote > :first-child {
+  margin-top: 0;
+}
+.content blockquote > :last-child {
+  margin-bottom: 0;
+}
+.content hr {
+  border-style: inset;
+  border-width: 1px;
+}
+.content img {
+  max-width: 100%;
+  height: auto;
+}
+.content li {
+  word-wrap: break-all;
+}
+.content li + li {
+  margin-top: 4px;
+}
+.content ul ul,
+.content ol ul,
+.content ul ol,
+.content ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.content .task-list-item {
+  list-style-type: none;
+}
+.content a {
+  color: #3370ff;
+  text-decoration: underline;
+}
+.content a img {
+  border: none;
+}
+.content b,
+.content strong {
+  font-weight: bold;
+}
+.content i,
+.content cite,
+.content em,
+.content var,
+.content address,
+.content dfn {
+  font-style: italic;
+}
+.content kbd,
+.content tt,
+.content samp {
+  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, "Courier New";
+}
+.content mark {
+  padding: 0.2em 0;
+  background-color: rgba(255, 246, 122, 0.8);
+}
+.content del,
+.content s {
+  color: inherit;
+}
+.content table {
+  color: black;
+  border-collapse: collapse;
+  background-color: white;
+  border-spacing: 2px;
+  font-size: 1em;
+}
+.content th,
+.content td {
+  border-color: #dee0e3;
+  border-width: 1px;
+  border-style: solid;
+}
+.content th {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: 500;
+}
+.content td {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: normal;
+}
+.content div[id^="mweb-chart-ele"] svg {
+  background-color: white;
+}
+
+.content * {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  line-height: 1.4;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0.37em;
+}
+.content a.header-anchor {
+  float: left;
+  margin-top: 0.08em;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  opacity: 0;
+}
+.content h1:hover a.header-anchor,
+.content h2:hover a.header-anchor,
+.content h3:hover a.header-anchor,
+.content h4:hover a.header-anchor,
+.content h5:hover a.header-anchor,
+.content h6:hover a.header-anchor {
+  opacity: 1;
+}
+.content blockquote {
+  display: block;
+  margin-left: 0;
+  padding-left: 14px;
+  border-left: 2px solid #3370ff;
+  color: rgba(31, 35, 41, 0.7);
+}
+.content a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  hyphens: auto;
+  word-break: break-word;
+  color: #3370ff;
+  text-decoration: none;
+}
+.content a:hover {
+  text-decoration: underline;
+}
+.content hr {
+  margin: 13px 0 12px;
+  border: 0px;
+  height: 1px;
+  background-origin: content-box;
+  background-image: linear-gradient(90deg, #bbbfc4, #bbbfc4);
+  background-repeat: no-repeat;
+}
+.content ul {
+  margin-left: 0;
+  padding: 0px;
+  list-style: none;
+}
+.content ul li:not([class*="task-list-item"]) {
+  word-wrap: break-all;
+  padding-left: 22px;
+}
+.content ul li:not([class*="task-list-item"]):before {
+  content: "•";
+  color: #3370ff;
+  display: inline-block;
+  margin-left: -20px;
+  margin-right: 20px;
+  width: 0px;
+  font-size: 0.8em;
+  transform: scale(1.25);
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.content
+  ul
+  li:not([class*="task-list-item"])
+  li:not([class*="task-list-item"])::before {
+  content: "◦";
+  transform: scale(1);
+  font-weight: 700;
+}
+.content
+  ul
+  li:not([class*="task-list-item"])
+  li:not([class*="task-list-item"])
+  li:not([class*="task-list-item"])::before {
+  content: "▪";
+  transform: scale(1.25);
+  font-weight: normal;
+}
+.content ol {
+  counter-reset: ol_counter;
+  margin-left: 0;
+  padding: 0px;
+  list-style: none;
+}
+.content ol li {
+  word-wrap: break-all;
+  padding-left: 22px;
+  position: relative;
+}
+.content ol li:before {
+  content: counter(ol_counter) ".";
+  counter-increment: ol_counter;
+  color: #3370ff;
+  position: absolute;
+  margin-left: -22px;
+  margin-right: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: visible;
+  min-width: 18px;
+  border-radius: 2px;
+  transform: translateX(-2px);
+  font-family: Helvetica Neue, Consolas;
+}
+.content li + li,
+.content ul ul,
+.content ol ul,
+.content ul ol,
+.content ol ol,
+.content li ul,
+.content li ol {
+  margin-top: 4px;
+}
+.content .task-list-item {
+  padding-left: 28px;
+  margin-left: -6px;
+  list-style-type: none;
+  word-wrap: break-all;
+}
+.content .task-list-item input {
+  margin: 0 !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.content .task-list-item input:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  line-height: normal;
+  font-size: 16px;
+  top: 2px;
+  border-radius: 2px;
+  border: 1px solid #2b2f36;
+  background-position: 50%;
+  white-space: normal;
+  width: 14px;
+  height: 14px;
+  margin-left: -22px;
+  margin-right: 6px;
+}
+.content .task-list-item input:checked:before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjU4OSAzLjkwM2wuODA4LjgwOGEuMzUuMzUgMCAwIDEgMCAuNDk1TDYuMTggMTAuNDI1YS4zNS4zNSAwIDAgMS0uNDk1IDBMMi43MDMgNy40NDRhLjM1LjM1IDAgMCAxIDAtLjQ5NWwuODA4LS44MDhhLjM1LjM1IDAgMCAxIC40OTUgMGwxLjkyNSAxLjkyNCA0LjE2My00LjE2M2EuMzUuMzUgMCAwIDEgLjQ5NSAweiIgZmlsbD0iIzMzNzBGRiIvPjwvc3ZnPg==);
+  background-size: contain;
+}

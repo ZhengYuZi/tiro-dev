@@ -3,7 +3,8 @@
   "author": "ZhengYuZi",
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm dev --filter \"@tiro/docs\""
+    "dev": "pnpm dev --filter \"@tiro/docs\"",
+    "build": "pnpm build --filter \"@tiro/docs\""
   },
   "dependencies": {
     "markdown-it": "^12.2.0",
