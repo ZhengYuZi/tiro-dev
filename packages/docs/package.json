@@ -12,6 +12,7 @@
     "vitepress": "^0.20.10"
   },
   "dependencies": {
-    "@tiro/ui": "workspace:^1.0.0"
+    "@tiro/ui": "workspace:^1.0.0",
+    "markdown-it-container": "^3.0.0"
   }
 }

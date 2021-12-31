@@ -16,9 +16,10 @@ const data = [
 # Button 按钮
 
 ## 基础用法
+::: show
 <ti-select width="200px" :options="data" />
 
-``` vue
+```vue
 <template>
     <ti-select width="200px" :options="data" />
 </template>
@@ -37,11 +38,13 @@ const data = [
 ]
 </script>
 ```
+:::
 
 ## 多选
+::: show
 <ti-select multiple width="200px" :options="data" />
 
-``` vue
+```vue
 <template>
     <ti-select multiple width="200px" :options="data" />
 </template>
@@ -60,3 +63,4 @@ const data = [
 ]
 </script>
 ```
+:::
