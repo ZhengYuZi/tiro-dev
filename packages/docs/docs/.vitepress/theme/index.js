@@ -1,4 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
+import Layout from '../../theme-comps/Layout.vue'
 import './custom.css'
 import './mweb-lark.css'
 import ti from '@tiro/ui'

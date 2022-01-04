@@ -23,11 +23,9 @@ const props = defineProps({
 <style scoped>
 @font-face {
   font-family: "iconfont"; /* Project id 2623434 */
-  src: url("//at.alicdn.com/t/font_2623434_h2pytrf3gmq.woff2?t=1635495347355")
-      format("woff2"),
-    url("//at.alicdn.com/t/font_2623434_h2pytrf3gmq.woff?t=1635495347355") format("woff"),
-    url("//at.alicdn.com/t/font_2623434_h2pytrf3gmq.ttf?t=1635495347355")
-      format("truetype");
+  src: url('//at.alicdn.com/t/font_2623434_u5g78018q8n.woff2?t=1641260670877') format('woff2'),
+       url('//at.alicdn.com/t/font_2623434_u5g78018q8n.woff?t=1641260670877') format('woff'),
+       url('//at.alicdn.com/t/font_2623434_u5g78018q8n.ttf?t=1641260670877') format('truetype');
 }
 
 .ti-icon {
@@ -36,6 +34,14 @@ const props = defineProps({
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-code:before {
+  content: "\e606";
+}
+
+.icon-copy:before {
+  content: "\e62b";
 }
 
 .icon-eye:before {
@@ -61,4 +67,5 @@ const props = defineProps({
 .icon-search:before {
   content: "\e78b";
 }
+
 </style>

@@ -5,9 +5,10 @@
                 <slot name="component"></slot>
             </div>
             <div class="example-handle">
-                <ti-icon name="icon-eye" @click="codeShow" />
+                <ti-icon name="icon-code" @click="codeShow" />
+                <ti-icon name="icon-copy" @click="codeCopy" />
             </div>
-            <div class="example-code" v-show="isShow">
+            <div ref="code" class="example-code" v-show="isShow">
                 <slot></slot>
             </div>
         </section>
@@ -16,9 +17,26 @@
 
 <script setup>
 import { ref } from 'vue'
+import useClipboard from 'vue-clipboard3'
+
+const { toClipboard } = useClipboard()
+
 const isShow = ref(false)
+const code = ref()
+
 const codeShow = () => {
     isShow.value = !isShow.value
+}
+const codeCopy = () => {
+    copy(code.value.innerText)
+}
+
+const copy = async (Msg) => {
+    try {
+        await toClipboard(Msg)
+    } catch (e) {
+        console.error(e)
+    }
 }
 </script>
 
@@ -27,7 +45,7 @@ const codeShow = () => {
     margin: 20px 0px;
 }
 .example-box {
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--c-border);
     border-radius: 2px;
 }
 .example-show {
@@ -36,14 +54,18 @@ const codeShow = () => {
 .example-handle {
     width: 100%;
     height: 30px;
-    border-top: 1px dashed #f0f0f0;
+    border-top: 1px dashed var(--c-border);
     text-align: center;
-    color: #cccccc;
+    color: var(--c-divider-dark);
 }
 .example-handle > * {
     cursor: pointer;
+    padding: 0 5px;
+}
+.example-handle > *:hover {
+    color: var(--c-black);
 }
 .example-code {
-    border-top: 1px dashed #f0f0f0;
+    border-top: 1px dashed var(--c-border);
 }
 </style>

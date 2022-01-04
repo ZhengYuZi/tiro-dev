@@ -13,7 +13,7 @@ const data = [
 ]
 </script>
 
-# Button 按钮
+# Select 选择器
 
 ## 基础用法
 ::: show
