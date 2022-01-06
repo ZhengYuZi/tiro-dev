@@ -23,14 +23,16 @@ importers:
     specifiers:
       '@tiro/ui': workspace:^1.0.0
       markdown-it-container: ^3.0.0
+      sass: ^1.46.0
       vitepress: ^0.20.10
       vue-clipboard3: ^1.0.1
     dependencies:
       '@tiro/ui': link:../tiro-ui
       markdown-it-container: 3.0.0
+      sass: 1.46.0
       vue-clipboard3: 1.0.1
     devDependencies:
-      vitepress: 0.20.10
+      vitepress: 0.20.10_sass@1.46.0
 
   packages/tiro-icons:
     specifiers: {}
@@ -234,7 +236,7 @@ packages:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.7.9
+      vite: 2.7.9_sass@1.46.0
       vue: 3.2.26
     dev: true
 
@@ -475,7 +477,7 @@ packages:
     engines: {node: '>= 8'}
     dependencies:
       normalize-path: 3.0.0
-      picomatch: 2.3.0
+      picomatch: 2.3.1
     dev: false
 
   /argparse/2.0.1:
@@ -822,6 +824,10 @@ packages:
       entities: 2.2.0
     dev: true
 
+  /immutable/4.0.0:
+    resolution: {integrity: sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==}
+    dev: false
+
   /is-binary-path/2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
@@ -949,8 +955,8 @@ packages:
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
-  /picomatch/2.3.0:
-    resolution: {integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==}
+  /picomatch/2.3.1:
+    resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
     dev: false
 
@@ -1080,7 +1086,7 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
     dependencies:
-      picomatch: 2.3.0
+      picomatch: 2.3.1
     dev: false
 
   /request-light/0.5.4:
@@ -1110,6 +1116,16 @@ packages:
       chokidar: 3.5.2
     dev: false
 
+  /sass/1.46.0:
+    resolution: {integrity: sha512-Z4BYTgioAOlMmo4LU3Ky2txR8KR0GRPLXxO38kklaYxgo7qMTgy+mpNN4eKsrXDTFlwS5vdruvazG4cihxHRVQ==}
+    engines: {node: '>=8.9.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.2
+      immutable: 4.0.0
+      source-map-js: 1.0.1
+    dev: false
+
   /select/1.1.2:
     resolution: {integrity: sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=}
     dev: false
@@ -1129,7 +1145,6 @@ packages:
   /source-map-js/1.0.1:
     resolution: {integrity: sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map/0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
@@ -1173,7 +1188,7 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /vite/2.7.9:
+  /vite/2.7.9_sass@1.46.0:
     resolution: {integrity: sha512-CyopIJIRrc26Wnbkch5BCHFhQodzeV4jjSegLAEw1RImvXSuoOo2SfpEW9zRVi188WmjJwCqCaoG25C0r4nekw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -1193,11 +1208,12 @@ packages:
       postcss: 8.4.5
       resolve: 1.20.0
       rollup: 2.62.0
+      sass: 1.46.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/0.20.10:
+  /vitepress/0.20.10_sass@1.46.0:
     resolution: {integrity: sha512-dKgH6k1yxdEjIIxoXGI0vMg3lpBLvMarre/vvt4beuxd+rXOUB1a7DAtXDmgIXOMGQ7IcF+4zyd2132IedhjtQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
@@ -1206,7 +1222,7 @@ packages:
       '@docsearch/js': 3.0.0-alpha.42
       '@vitejs/plugin-vue': 2.0.1_vite@2.7.9+vue@3.2.26
       prismjs: 1.25.0
-      vite: 2.7.9
+      vite: 2.7.9_sass@1.46.0
       vue: 3.2.26
     transitivePeerDependencies:
       - '@algolia/client-search'

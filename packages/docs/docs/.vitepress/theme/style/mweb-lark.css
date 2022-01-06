@@ -1,8 +1,4 @@
 
-/**
- * MWeb 包裹 markdown 的容器是 .content
- * Typora 中是 #write
- */
 .content {
   line-height: 1.68;
   -webkit-text-size-adjust: 100%;

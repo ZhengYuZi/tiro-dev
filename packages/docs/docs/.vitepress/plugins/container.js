@@ -1,4 +1,4 @@
-const container = require("markdown-it-container")
+import container from 'markdown-it-container'
 
 function createContainer(klass) {
   return [
@@ -26,6 +26,6 @@ function createContainer(klass) {
   ]
 }
 
-module.exports = {
+export {
     createContainer
 }

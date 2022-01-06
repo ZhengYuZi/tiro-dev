@@ -1,6 +1,6 @@
-const { createContainer } = require('./plugins/container')
+import { createContainer } from './plugins/container'
 
-module.exports = {
+export default {
   title: "Tiro", // 顶部左侧标题
   base: "/", // 项目的根路径
   head: [["link", { rel: "icon", href: "/logo.png" }]],

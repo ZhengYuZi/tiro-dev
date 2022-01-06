@@ -1,12 +1,12 @@
 import DefaultTheme from 'vitepress/theme'
-import Layout from '../../theme-comps/Layout.vue'
-import './custom.css'
-import './mweb-lark.css'
+import Layout from '../components/Layout.vue'
+import './style/custom.css'
+import './style/mweb-lark.css'
 import ti from '@tiro/ui'
-import Example from '../../theme-comps/example.vue'
+import Example from '../components/example.vue'
 
 export default {
-  ...DefaultTheme,
+  Layout,
   enhanceApp({ app }) {
     app.use(ti)
     app.component('ti-example', Example)
