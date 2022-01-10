@@ -5,9 +5,9 @@
       <div class="container">
         <Content class="content" />
       </div>
-      <div class="toc">
-        <Headers />
-      </div>
+      <aside class="toc" v-if="headers">
+        <Headers :headers="headers" />
+      </aside>
     </main>
   </div>
 </template>
@@ -16,21 +16,24 @@
 import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
-import { useRoute } from "vitepress"
-import config from "../config.js"
+import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
+const { page, site } = useData()
+const headers = ref([])
 const path = ref("")
 const logo = ref("")
 
 watch(route, (val) => {
-  contents.value = findValue(config.themeConfig.sidebar, val.path, "/")
+  contents.value = findValue(site.value.themeConfig.sidebar, val.path, "/")
   path.value = val.path
+  headers.value = page.value.headers
 })
 
 onMounted(() => {
-  contents.value = findValue(config.themeConfig.sidebar, route.path, "/")
-  logo.value = config.themeConfig.logo
+  contents.value = findValue(site.value.themeConfig.sidebar, route.path, "/")
+  headers.value = page.value.headers
+  logo.value = site.value.themeConfig.logo
   path.value = route.path
 })
 
@@ -58,16 +61,24 @@ function findValue(obj: object, str: string, judgeValue: string | number) {
     margin-left: 17rem;
   }
 }
+@media (max-width: 1200px) {
+  .page {
+    .toc {
+      display: none;
+    }
+  }
+}
 .page {
   display: flex;
   .container {
     flex-grow: 1;
     margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-    max-width: 48rem;
+    padding: 2rem 1.5rem 4rem;
+    max-width: 52rem;
   }
   .toc {
-    width: 200px;
+    width: 150px;
+    min-height: 100vh;
   }
 }
 .content {

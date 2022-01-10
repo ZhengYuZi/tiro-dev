@@ -11,8 +11,8 @@ export default {
         {
           text: "Base 基础组件",
           children: [
-            { text: "Select 选择器", link: "/component/button" },
-            { text: "Border 边框", link: "/component/border" },
+            { text: "Select 选择器", link: "/component/select" },
+            { text: "Input 输入框", link: "/component/input" },
             { text: "Icon 图标", link: "/component/icon" },
             { text: "Color 色彩", link: "/component/color" },
           ],
@@ -21,7 +21,7 @@ export default {
           text: "Form 表单组件",
           children: [
             { text: "CheckBox 多选框", link: "/component/checkbox" },
-            { text: "Input 输入框", link: "/component/input" },
+            { text: "Border 边框", link: "/component/border" },
             { text: "From 表单", link: "/component/form" },
             { text: "Radio 单选框", link: "/component/radio" },
           ],

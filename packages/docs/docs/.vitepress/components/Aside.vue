@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <div class="sidebar-brand">
+    <div class="sidebar-brand" @click="LinkTo('/', '')">
       <img src="https://element-plus.gitee.io/images/element-plus-logo.svg" />
     </div>
     <div class="sidebar-groups">
@@ -44,8 +44,8 @@ const isActive = (link: string) => {
   return ""
 }
 
-const LinkTo = (url) => {
-  router.go(url + suffix)
+const LinkTo = (url, suff = suffix) => {
+  router.go(url + suff)
 }
 </script>
 
@@ -66,6 +66,7 @@ const LinkTo = (url) => {
   .sidebar-brand {
     padding: 30px 30px 20px;
     text-align: center;
+    cursor: pointer;
     img {
       width: auto;
       height: 40px;
@@ -94,12 +95,15 @@ const LinkTo = (url) => {
         color: #3370ff;
         position: relative;
         &:after {
-          content: '●';
+          content: "";
+          width: 5px;
+          height: 60%;
+          background-color: #3370ff;
           position: absolute;
           left: 0px;
           top: 50%;
           transform: translateY(-50%);
-          border-radius: 50%;
+          border-radius: 10px;
         }
       }
       &:hover {
