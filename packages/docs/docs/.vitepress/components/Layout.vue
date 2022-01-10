@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Aside :data="contents" v-if="contents" />
+    <Aside :data="contents" :path="path" :logo="logo" v-if="contents" />
     <main class="page" :class="contents ? 'has-sidebar' : ''">
       <div class="container">
         <Content class="content" />
-        <div @click="linkTo">1111</div>
+      </div>
+      <div class="toc">
+        <Headers />
       </div>
     </main>
   </div>
@@ -13,25 +15,24 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
-import { useRoute, useRouter } from "vitepress"
+import Headers from "./Headers.vue"
+import { useRoute } from "vitepress"
 import config from "../config.js"
 const route = useRoute()
-const router = useRouter()
 const contents = ref([])
+const path = ref("")
+const logo = ref("")
 
 watch(route, (val) => {
   contents.value = findValue(config.themeConfig.sidebar, val.path, "/")
-  console.log(contents.value)
+  path.value = val.path
 })
 
 onMounted(() => {
   contents.value = findValue(config.themeConfig.sidebar, route.path, "/")
-  console.log(contents.value)
+  logo.value = config.themeConfig.logo
+  path.value = route.path
 })
-
-const linkTo = () => {
-  router.go("/guide/guide.html")
-}
 
 function findValue(obj: object, str: string, judgeValue: string | number) {
   const keys = Object.keys(obj)
@@ -57,10 +58,17 @@ function findValue(obj: object, str: string, judgeValue: string | number) {
     margin-left: 17rem;
   }
 }
-.container {
-  margin: 0 auto;
-  padding: 0 1.5rem 4rem;
-  max-width: 48rem;
+.page {
+  display: flex;
+  .container {
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    max-width: 48rem;
+  }
+  .toc {
+    width: 200px;
+  }
 }
 .content {
   padding-bottom: 1.5rem;

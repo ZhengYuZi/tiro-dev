@@ -19,7 +19,7 @@ const data = [
 ::: show
 <ti-select width="200px" :options="data" />
 
-```vue
+``` vue
 <template>
     <ti-select width="200px" :options="data" />
 </template>
@@ -44,7 +44,7 @@ const data = [
 ::: show
 <ti-select multiple width="200px" :options="data" />
 
-```vue
+``` vue
 <template>
     <ti-select multiple width="200px" :options="data" />
 </template>

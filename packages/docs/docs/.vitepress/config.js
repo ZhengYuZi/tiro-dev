@@ -1,17 +1,30 @@
-import { createContainer } from './plugins/container'
+import { containerPlugin } from "./plugins/md-it-plugins"
 
 export default {
   title: "Tiro", // 顶部左侧标题
   base: "/", // 项目的根路径
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   themeConfig: {
-    logo: '/logo.png',
-    //sidebar: false,
+    logo: "/logo.png",
     sidebar: {
       "/component": [
         {
-          text: "基础组件",
-          children: [{ text: "按钮", link: "/component/button" }],
+          text: "Base 基础组件",
+          children: [
+            { text: "Select 选择器", link: "/component/button" },
+            { text: "Border 边框", link: "/component/border" },
+            { text: "Icon 图标", link: "/component/icon" },
+            { text: "Color 色彩", link: "/component/color" },
+          ],
+        },
+        {
+          text: "Form 表单组件",
+          children: [
+            { text: "CheckBox 多选框", link: "/component/checkbox" },
+            { text: "Input 输入框", link: "/component/input" },
+            { text: "From 表单", link: "/component/form" },
+            { text: "Radio 单选框", link: "/component/radio" },
+          ],
         },
       ],
       "/guide": false,
@@ -25,7 +38,7 @@ export default {
   },
   markdown: {
     config: (md) => {
-      md.use(...createContainer('show'))
-    }
-  }
+      md.use(...containerPlugin())
+    },
+  },
 }
