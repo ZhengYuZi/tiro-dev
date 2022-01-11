@@ -1,8 +1,10 @@
 <template>
   <aside class="sidebar">
-    <div class="sidebar-brand" @click="LinkTo('/', '')">
-      <img src="https://element-plus.gitee.io/images/element-plus-logo.svg" />
-    </div>
+    <!-- <div class="sidebar-brand">
+      <a href="/">
+        <img src="https://element-plus.gitee.io/images/element-plus-logo.svg"/>
+      </a>
+    </div> -->
     <div class="sidebar-groups">
       <section v-for="title in data" :key="title">
         <p class="sidebar-group-title">{{ title.text }}</p>
@@ -52,11 +54,11 @@ const LinkTo = (url, suff = suffix) => {
 <style lang="scss" scoped>
 .sidebar {
   position: fixed;
-  top: 0;
+  top: var(--header-height);
   bottom: 0;
   left: 0;
   z-index: var(--z-index-sidebar);
-  border-right: 1px solid var(--c-divider);
+  //border-right: 1px solid var(--c-border);
   width: 15rem;
   background-color: var(--c-bg);
   overflow-y: auto;
@@ -74,7 +76,8 @@ const LinkTo = (url, suff = suffix) => {
   }
 
   .sidebar-groups {
-    font-size: 15px;
+    padding-top: 20px;
+    font-size: 14px;
     .sidebar-group-title {
       padding-left: 30px;
       font-weight: 600;
@@ -87,24 +90,12 @@ const LinkTo = (url, suff = suffix) => {
     }
     li {
       color: #6e6e6e;
-      padding: 3px 20px;
-      margin: 10px 20px;
-      border-radius: 5px;
+      padding: 6px 20px;
+      margin: 4px 20px;
       cursor: pointer;
       &.active {
         color: #3370ff;
-        position: relative;
-        &:after {
-          content: "";
-          width: 5px;
-          height: 60%;
-          background-color: #3370ff;
-          position: absolute;
-          left: 0px;
-          top: 50%;
-          transform: translateY(-50%);
-          border-radius: 10px;
-        }
+        background-color: var(--c-white-dark);
       }
       &:hover {
         color: #3370ff;

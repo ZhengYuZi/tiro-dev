@@ -14,8 +14,11 @@ const data = [
 </script>
 
 # Select 选择器
+当选项过多时，使用下拉菜单展示并选择内容。
 
 ## 基础用法
+适用广泛的基础单选 `v-model` 的值为当前被选中的 `options` 的 value 属性值
+
 ::: show
 <ti-select width="200px" :options="data" />
 
@@ -41,6 +44,8 @@ const data = [
 :::
 
 ## 多选
+适用性较广的基础多选，用 Tag 展示已选项
+
 ::: show
 <ti-select multiple width="200px" :options="data" />
 

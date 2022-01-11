@@ -26,18 +26,4 @@ const containerPlugin = (klass = "show") => {
   ]
 }
 
-// const headingPlugin = (md, include = ["h2", "h3"]) => {
-//   md.renderer.rules.heading_open = (tokens, i, options, env, self) => {
-//     const token = tokens[i]
-//     if (include.includes(token.tag)) {
-//       const title = tokens[i + 1].content
-//       headers.push({
-//         level: parseInt(token.tag.slice(1), 10),
-//         title: title
-//       })
-//     }
-//     return self.renderToken(tokens, i, options)
-//   }
-// }
-
 export { containerPlugin }

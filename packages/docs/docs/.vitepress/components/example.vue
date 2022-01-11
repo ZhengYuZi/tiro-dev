@@ -55,7 +55,7 @@ const copy = async (Msg) => {
     height: 30px;
     border-top: 1px dashed var(--c-border);
     text-align: center;
-    color: var(--c-divider-dark);
+    color: var(--c-text-light-3);
     & > * {
       cursor: pointer;
       padding: 0 5px;

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Aside :data="contents" :path="path" :logo="logo" v-if="contents" />
-    <main class="page" :class="contents ? 'has-sidebar' : ''">
+    <Header />
+    <Aside :data="contents" :path="path" :logo="logo" v-if="contents.length" />
+    <main class="page" :class="contents.length ? 'has-sidebar' : ''">
       <div class="container">
         <Content class="content" />
       </div>
@@ -16,6 +17,7 @@
 import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
+import Header from './Header.vue'
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
@@ -25,28 +27,22 @@ const path = ref("")
 const logo = ref("")
 
 watch(route, (val) => {
-  contents.value = findValue(site.value.themeConfig.sidebar, val.path, "/")
+  contents.value = findValue(site.value.themeConfig.sidebar, val.path)
   path.value = val.path
   headers.value = page.value.headers
 })
 
 onMounted(() => {
-  contents.value = findValue(site.value.themeConfig.sidebar, route.path, "/")
+  contents.value = findValue(site.value.themeConfig.sidebar, route.path)
   headers.value = page.value.headers
   logo.value = site.value.themeConfig.logo
   path.value = route.path
 })
 
-function findValue(obj: object, str: string, judgeValue: string | number) {
-  const keys = Object.keys(obj)
-  let value = false
-  keys.map((item) => {
-    if (judgeValue + 1 && judgeValue !== "" && item === judgeValue) return
-    if (str.includes(item)) {
-      value = obj[item]
-    }
-  })
-  return value
+function findValue(obj: object, str: string) {
+  const slash = '/'
+  const baseRoute = slash + route.path.split(slash)[1]
+  return obj[str] || obj[baseRoute] || []
 }
 </script>
 
@@ -68,10 +64,17 @@ function findValue(obj: object, str: string, judgeValue: string | number) {
     }
   }
 }
+@media (min-width: 1200px) {
+  .page {
+    display: flex;
+    .container {
+      flex-grow: 1;
+    }
+  }
+}
 .page {
-  display: flex;
+  margin-top: 30px;
   .container {
-    flex-grow: 1;
     margin: 0 auto;
     padding: 2rem 1.5rem 4rem;
     max-width: 52rem;
