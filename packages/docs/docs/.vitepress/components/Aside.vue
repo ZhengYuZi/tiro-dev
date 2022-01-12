@@ -1,10 +1,5 @@
 <template>
   <aside class="sidebar">
-    <!-- <div class="sidebar-brand">
-      <a href="/">
-        <img src="https://element-plus.gitee.io/images/element-plus-logo.svg"/>
-      </a>
-    </div> -->
     <div class="sidebar-groups">
       <section v-for="title in data" :key="title">
         <p class="sidebar-group-title">{{ title.text }}</p>
@@ -64,16 +59,6 @@ const LinkTo = (url, suff = suffix) => {
   overflow-y: auto;
   transform: translateX(-100%);
   transition: transform 0.25s ease;
-
-  .sidebar-brand {
-    padding: 30px 30px 20px;
-    text-align: center;
-    cursor: pointer;
-    img {
-      width: auto;
-      height: 40px;
-    }
-  }
 
   .sidebar-groups {
     padding-top: 20px;
