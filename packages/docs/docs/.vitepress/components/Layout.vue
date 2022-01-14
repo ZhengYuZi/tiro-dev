@@ -17,7 +17,7 @@
 import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
-import Header from './Header.vue'
+import Header from "./Header.vue"
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
@@ -40,7 +40,7 @@ onMounted(() => {
 })
 
 function findValue(obj: object, str: string) {
-  const slash = '/'
+  const slash = "/"
   const baseRoute = slash + route.path.split(slash)[1]
   return obj[str] || obj[baseRoute] || []
 }
@@ -73,10 +73,10 @@ function findValue(obj: object, str: string) {
   }
 }
 .page {
-  margin-top: 30px;
+  margin-top: var(--header-height);
   .container {
     margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+    padding: 1rem 1.5rem 4rem;
     max-width: 52rem;
   }
   .toc {

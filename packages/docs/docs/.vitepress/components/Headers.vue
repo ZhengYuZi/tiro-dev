@@ -4,7 +4,8 @@
     <ul class="toc-items">
       <li
         class="toc-item"
-        v-for="item in headers"
+        :class="index === active ? 'active' : ''"
+        v-for="(item, index) in headers"
         :style="`padding-left:${(item.level - 2) * 10}px`"
       >
         <a class="toc-link" :href="`#${item.title}`">{{ item.title }}</a>
@@ -14,11 +15,58 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, watch } from "vue"
+
 const props = defineProps({
   headers: {
     type: Array,
-  }
+  },
 })
+
+const active = ref(-1)
+const anchorsTop = ref([])
+
+watch(
+  () => {
+    return props.headers
+  },
+  async (val) => {
+    anchorsTop.value = await getAnchorsTop(val)
+    window.removeEventListener("scroll", handleScroll)
+
+    if (val.length) {
+      window.addEventListener("scroll", handleScroll)
+    }
+  }
+)
+
+function getAnchorsTop(val) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const anthor = val.reduce((total, current) => {
+        const currentEle = document.getElementById(current.slug)
+        total.push(currentEle.offsetTop)
+        return total
+      }, [])
+      resolve(anthor)
+    }, 0)
+  })
+}
+
+function handleScroll() {
+  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+  if (anchorsTop.value[0] > scrollTop && scrollTop >= 0) {
+    active.value = -1
+    return
+  }
+  for (let index = 0; index < anchorsTop.value.length; index++) {
+    if (index + 1 > anchorsTop.value.length) break
+    if (anchorsTop.value[index+1] > scrollTop && scrollTop >= anchorsTop.value[index]) {
+      active.value = index
+      break
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -40,8 +88,15 @@ const props = defineProps({
   }
   .toc-items {
     margin-top: 10px;
-    a {
-      color: var(--c-text-light-3);
+    .toc-item {
+      a {
+        color: var(--c-text-light-3);
+      }
+      &.active {
+        a {
+          color: #3370ff;
+        }
+      }
     }
   }
 }
