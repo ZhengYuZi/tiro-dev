@@ -4,7 +4,7 @@
     <ul class="toc-items">
       <li
         class="toc-item"
-        :class="index === active ? 'active' : ''"
+        :class="index === activeIndex ? 'active' : ''"
         v-for="(item, index) in headers"
         :style="`padding-left:${(item.level - 2) * 10}px`"
       >
@@ -15,58 +15,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue"
+import { ref, onMounted, watch } from "vue";
+import useActiveLink from '../hooks/active-link.js'
 
 const props = defineProps({
   headers: {
     type: Array,
   },
-})
+});
 
-const active = ref(-1)
-const anchorsTop = ref([])
+const activeIndex = ref();
 
-watch(
-  () => {
-    return props.headers
-  },
-  async (val) => {
-    anchorsTop.value = await getAnchorsTop(val)
-    window.removeEventListener("scroll", handleScroll)
+useActiveLink(activeIndex)
 
-    if (val.length) {
-      window.addEventListener("scroll", handleScroll)
-    }
-  }
-)
 
-function getAnchorsTop(val) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const anthor = val.reduce((total, current) => {
-        const currentEle = document.getElementById(current.slug)
-        total.push(currentEle.offsetTop)
-        return total
-      }, [])
-      resolve(anthor)
-    }, 0)
-  })
-}
-
-function handleScroll() {
-  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-  if (anchorsTop.value[0] > scrollTop && scrollTop >= 0) {
-    active.value = -1
-    return
-  }
-  for (let index = 0; index < anchorsTop.value.length; index++) {
-    if (index + 1 > anchorsTop.value.length) break
-    if (anchorsTop.value[index+1] > scrollTop && scrollTop >= anchorsTop.value[index]) {
-      active.value = index
-      break
-    }
-  }
-}
 </script>
 
 <style lang="scss">
