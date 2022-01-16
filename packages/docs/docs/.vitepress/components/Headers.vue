@@ -27,8 +27,6 @@ const props = defineProps({
 const activeIndex = ref();
 
 useActiveLink(activeIndex)
-
-
 </script>
 
 <style lang="scss">
