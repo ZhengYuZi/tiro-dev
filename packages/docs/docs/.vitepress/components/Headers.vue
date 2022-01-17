@@ -22,9 +22,9 @@ const props = defineProps({
   headers: {
     type: Array,
   },
-});
+})
 
-const activeIndex = ref();
+const activeIndex = ref()
 
 useActiveLink(activeIndex)
 </script>

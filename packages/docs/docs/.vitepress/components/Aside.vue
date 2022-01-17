@@ -53,7 +53,7 @@ const LinkTo = (url, suff = suffix) => {
   bottom: 0;
   left: 0;
   z-index: var(--z-index-sidebar);
-  //border-right: 1px solid var(--c-border);
+  border-right: 1px solid var(--c-border);
   width: 15rem;
   background-color: var(--c-bg);
   overflow-y: auto;

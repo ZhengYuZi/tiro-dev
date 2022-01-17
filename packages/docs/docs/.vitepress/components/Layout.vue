@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Header />
-    <Aside :data="contents" :path="path" :logo="logo" v-if="contents.length" />
-    <main class="page" :class="contents.length ? 'has-sidebar' : ''">
+    <Header :nav="nav" :path="path" />
+    <Aside :data="contents" :path="path" :logo="logo" v-if="contents?.length" />
+    <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
       <div class="container">
         <Content class="content" />
       </div>
-      <aside class="toc" v-if="headers">
+      <aside class="toc" v-if="headers?.length">
         <Headers :headers="headers" />
       </aside>
     </main>
@@ -18,21 +18,28 @@ import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
 import Header from "./Header.vue"
+import theme from '../theme/index.js'
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
 const { page, site } = useData()
 const headers = ref([])
+const nav = ref([])
 const path = ref("")
 const logo = ref("")
 
 watch(route, (val) => {
   contents.value = findValue(site.value.themeConfig.sidebar, val.path)
   path.value = val.path
+  if(route.component === theme.NotFound) {
+    headers.value = []
+    return
+  }
   headers.value = page.value.headers
 })
 
 onMounted(() => {
+  nav.value = site.value.themeConfig.nav
   contents.value = findValue(site.value.themeConfig.sidebar, route.path)
   headers.value = page.value.headers
   logo.value = site.value.themeConfig.logo
@@ -80,7 +87,7 @@ function findValue(obj: object, str: string) {
     max-width: 52rem;
   }
   .toc {
-    width: 150px;
+    width: 200px;
     min-height: 100vh;
   }
 }

@@ -3,8 +3,9 @@ import { throttle } from '../utils/index.js'
 
 export default function useActiveLink(activeIndex) {
 
+  const onScroll = throttle(setActiveLink, 150)
+
   onMounted(() => {
-    const onScroll = throttle(setActiveLink, 150)
     window.addEventListener('scroll', onScroll)
   })
 
@@ -14,6 +15,12 @@ export default function useActiveLink(activeIndex) {
   
   function setActiveLink() {
     const links = getLinks()
+
+    if(!links.length) {
+      window.removeEventListener('scroll', onScroll)
+      return
+    }
+
     const anchors = getAnchors(links)
 
     for (let i = 0; i < anchors.length; i++) {
@@ -43,7 +50,9 @@ function getAnchors(sidebarLinks) {
   return (
     Array.from(document.querySelectorAll('.content .header-anchor'))
   ).filter((anchor) =>
-    sidebarLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
+    sidebarLinks.some((sidebarLink) => {
+      return sidebarLink.hash === anchor.hash
+    })
   )
 }
 
