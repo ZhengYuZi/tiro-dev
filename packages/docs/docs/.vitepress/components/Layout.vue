@@ -1,10 +1,11 @@
 <template>
   <div>
     <Header :nav="nav" :path="path" />
-    <Aside :data="contents" :path="path" :logo="logo" v-if="contents?.length" />
+    <Aside :data="contents" :path="path" v-if="contents?.length" />
     <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
       <div class="container">
         <Content class="content" />
+        <Arrow :data="contents" :path="path" />
       </div>
       <aside class="toc" v-if="headers?.length">
         <Headers :headers="headers" />
@@ -18,13 +19,14 @@ import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
 import Header from "./Header.vue"
+import Arrow from './Arrow.vue'
 import theme from '../theme/index.js'
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
 const { page, site } = useData()
 const headers = ref([])
-const nav = ref([])
+const nav = ref({})
 const path = ref("")
 const logo = ref("")
 
@@ -39,10 +41,9 @@ watch(route, (val) => {
 })
 
 onMounted(() => {
-  nav.value = site.value.themeConfig.nav
+  nav.value = site.value
   contents.value = findValue(site.value.themeConfig.sidebar, route.path)
   headers.value = page.value.headers
-  logo.value = site.value.themeConfig.logo
   path.value = route.path
 })
 

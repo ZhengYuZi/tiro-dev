@@ -1,6 +1,6 @@
 <template>
   <nav class="toc-content">
-    <span class="toc-content-heading">CONTENTS 目录</span>
+    <span class="toc-content-heading">目录</span>
     <ul class="toc-items">
       <li
         class="toc-item"

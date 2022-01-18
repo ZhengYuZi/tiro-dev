@@ -22,18 +22,26 @@ const props = defineProps({
 
 <style scoped>
 @font-face {
-  font-family: "iconfont"; /* Project id 2623434 */
-  src: url('//at.alicdn.com/t/font_2623434_u5g78018q8n.woff2?t=1641260670877') format('woff2'),
-       url('//at.alicdn.com/t/font_2623434_u5g78018q8n.woff?t=1641260670877') format('woff'),
-       url('//at.alicdn.com/t/font_2623434_u5g78018q8n.ttf?t=1641260670877') format('truetype');
+  font-family: "ti-icon"; /* Project id 2623434 */
+  src: url('//at.alicdn.com/t/font_2623434_299sqm2i2zx.woff2?t=1642475459700') format('woff2'),
+       url('//at.alicdn.com/t/font_2623434_299sqm2i2zx.woff?t=1642475459700') format('woff'),
+       url('//at.alicdn.com/t/font_2623434_299sqm2i2zx.ttf?t=1642475459700') format('truetype');
 }
 
 .ti-icon {
-  font-family: "iconfont" !important;
+  font-family: "ti-icon" !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-list:before {
+  content: "\e655";
+}
+
+.icon-github:before {
+  content: "\e673";
 }
 
 .icon-code:before {
@@ -67,5 +75,4 @@ const props = defineProps({
 .icon-search:before {
   content: "\e78b";
 }
-
 </style>

@@ -27,10 +27,7 @@ const props = defineProps({
   },
   path: {
     type: String,
-  },
-  logo: {
-    type: String,
-  },
+  }
 })
 const suffix = ".html"
 
