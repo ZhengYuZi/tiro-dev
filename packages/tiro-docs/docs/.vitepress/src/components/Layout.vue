@@ -20,7 +20,7 @@ import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
 import Header from "./Header.vue"
 import Arrow from './Arrow.vue'
-import theme from '../theme/index.js'
+import theme from '../../theme/index.js'
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])

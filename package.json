@@ -7,8 +7,7 @@
     "build": "pnpm build --filter \"@tiro/docs\""
   },
   "dependencies": {
-    "markdown-it": "^12.2.0",
-    "sass": "^1.43.3",
+    "sass": "^1.48.0",
     "vue": "^3.2.6"
   },
   "devDependencies": {

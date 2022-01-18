@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar" :class="asideOpenStore.open ? 'open' : ''">
     <div class="sidebar-groups">
       <section v-for="title in data" :key="title">
         <p class="sidebar-group-title">{{ title.text }}</p>
@@ -16,10 +16,18 @@
       </section>
     </div>
   </aside>
+  <div
+    class="sidebar-mask--"
+    v-if="asideOpenStore.open"
+    @click="asideOpenStore.updateClose()"
+  ></div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from "vitepress"
+import { useAsideOpenStore } from "../store/asideOpen.ts"
+
+const asideOpenStore = useAsideOpenStore()
 const router = useRouter()
 const props = defineProps({
   data: {
@@ -27,7 +35,7 @@ const props = defineProps({
   },
   path: {
     type: String,
-  }
+  },
 })
 const suffix = ".html"
 
@@ -39,6 +47,7 @@ const isActive = (link: string) => {
 }
 
 const LinkTo = (url, suff = suffix) => {
+  asideOpenStore.updateClose()
   router.go(url + suff)
 }
 </script>
@@ -97,5 +106,14 @@ const LinkTo = (url, suff = suffix) => {
 }
 .sidebar.open {
   transform: translateX(0);
+}
+.sidebar-mask-- {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 </style>

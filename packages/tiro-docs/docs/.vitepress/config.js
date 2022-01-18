@@ -1,4 +1,4 @@
-import { containerPlugin } from "./plugins/md-it-plugins"
+import { containerPlugin } from "./src/plugins/md-it-plugins"
 
 export default {
   title: "Tiro", // 顶部左侧标题

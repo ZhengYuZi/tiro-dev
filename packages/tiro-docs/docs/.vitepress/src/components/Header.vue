@@ -1,7 +1,7 @@
 <template>
   <header class="navbar">
     <div class="container">
-      <div class="navbar-list" @click="openAside">
+      <div class="navbar-list" @click="asideOpenStore.updateOpen()">
         <ti-icon name="icon-list" :size="30"></ti-icon>
       </div>
       <div class="navbar-logo">
@@ -27,6 +27,9 @@
 </template>
 
 <script setup lang="ts">
+import { useAsideOpenStore } from '../store/asideOpen.ts'
+const asideOpenStore = useAsideOpenStore()
+
 const props = defineProps({
   nav: {
     type: Object,
@@ -35,8 +38,6 @@ const props = defineProps({
     type: String,
   },
 })
-
-const openAside = () => {}
 </script>
 
 <style lang="scss" scoped>
