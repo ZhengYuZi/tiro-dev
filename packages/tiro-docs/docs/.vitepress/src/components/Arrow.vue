@@ -1,5 +1,5 @@
 <template>
-  <div class="arrow-container">
+  <div class="arrow-container" v-if="data?.length">
     <div class="arrow-inner">
       <a
         class="arrow-box arrow-left"
@@ -9,7 +9,7 @@
         <ti-icon name="icon-arrow-left" />
         <div class="arrow-info">
           <span>PREVIOUS</span>
-          <span class="arrow-title">{{ previous.text }}</span>
+          <span class="arrow-title">{{ previous?.text }}</span>
         </div>
       </a>
     </div>
@@ -18,7 +18,7 @@
         <ti-icon name="icon-arrow-right" />
         <div class="arrow-info">
           <span>NEXT</span>
-          <span class="arrow-title">{{ next.text }}</span>
+          <span class="arrow-title">{{ next?.text }}</span>
         </div>
       </a>
     </div>
@@ -44,6 +44,11 @@ const props = defineProps({
 })
 
 onUpdated(() => {
+  if (!props.data?.length) {
+    previous.value = null
+    next.value = null
+    return
+  }
   const children = props.data.reduce((total, item) => {
     total.push(...item.children)
     return total

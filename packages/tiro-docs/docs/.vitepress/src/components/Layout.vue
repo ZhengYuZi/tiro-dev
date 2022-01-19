@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :nav="nav" :path="path" />
+    <Header :nav="nav" :path="path" :isShow="contents?.length" />
     <Aside :data="contents" :path="path" v-if="contents?.length" />
     <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
       <div class="container">
@@ -28,29 +28,26 @@ const { page, site } = useData()
 const headers = ref([])
 const nav = ref({})
 const path = ref("")
-const logo = ref("")
 
 watch(route, (val) => {
-  contents.value = findValue(site.value.themeConfig.sidebar, val.path)
-  path.value = val.path
-  if(route.component === theme.NotFound) {
-    headers.value = []
-    return
-  }
-  headers.value = page.value.headers
+  changeValue(val)
 })
 
 onMounted(() => {
   nav.value = site.value
-  contents.value = findValue(site.value.themeConfig.sidebar, route.path)
-  headers.value = page.value.headers
-  path.value = route.path
+  changeValue(route)
 })
+
+function changeValue(val) {
+  contents.value = findValue(site.value.themeConfig.sidebar, val.path)
+  path.value = val.path
+  headers.value = val.component === theme.NotFound ? [] : page.value.headers
+}
 
 function findValue(obj: object, str: string) {
   const slash = "/"
   const baseRoute = slash + route.path.split(slash)[1]
-  return obj[str] || obj[baseRoute] || []
+  return obj[baseRoute] || []
 }
 </script>
 
@@ -81,7 +78,7 @@ function findValue(obj: object, str: string) {
   }
 }
 .page {
-  margin-top: var(--header-height);
+  padding-top: var(--header-height);
   .container {
     margin: 0 auto;
     padding: 1rem 1.5rem 4rem;

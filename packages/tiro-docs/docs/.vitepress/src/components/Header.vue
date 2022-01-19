@@ -1,14 +1,20 @@
 <template>
   <header class="navbar">
     <div class="container">
-      <div class="navbar-list" @click="asideOpenStore.updateOpen()">
-        <ti-icon name="icon-list" :size="30"></ti-icon>
-      </div>
-      <div class="navbar-logo">
-        <a href="/">
-          <img :src="nav?.themeConfig?.logo" />
-          {{ nav?.title }}
-        </a>
+      <div class="navbar-left">
+        <div
+          class="navbar-list"
+          @click="asideOpenStore.updateOpen()"
+          v-if="isShow"
+        >
+          <ti-icon name="icon-list" :size="30"></ti-icon>
+        </div>
+        <div class="navbar-logo">
+          <a href="/">
+            <img :src="nav?.themeConfig?.logo" />
+            {{ nav?.title }}
+          </a>
+        </div>
       </div>
       <div class="navbar-content">
         <template v-for="item in nav?.themeConfig?.nav" :key="item.link">
@@ -27,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAsideOpenStore } from '../store/asideOpen.ts'
+import { useAsideOpenStore } from "../store/useStore.ts"
 const asideOpenStore = useAsideOpenStore()
 
 const props = defineProps({
@@ -36,6 +42,9 @@ const props = defineProps({
   },
   path: {
     type: String,
+  },
+  isShow: {
+    type: Number,
   },
 })
 </script>
@@ -65,27 +74,29 @@ const props = defineProps({
     justify-content: space-between;
     margin: 0px 60px;
 
-    .navbar-list {
+    .navbar-left {
       height: 100%;
-      line-height: var(--header-height);
-      position: absolute;
-      left: 15px;
-    }
+      display: flex;
+      align-items: center;
 
-    .navbar-logo {
-      height: 60%;
-
-      a {
-        font-size: 22px;
-        display: flex;
-        height: 100%;
-        align-items: center;
+      .navbar-logo {
+        height: 60%;
+        a {
+          font-size: 22px;
+          display: flex;
+          height: 100%;
+          align-items: center;
+        }
+        img {
+          width: auto;
+          height: 100%;
+          padding-right: 5px;
+        }
       }
 
-      img {
-        width: auto;
+      .navbar-list {
         height: 100%;
-        padding-right: 5px;
+        margin-right: 10px;
       }
     }
     .navbar-content {
@@ -101,8 +112,8 @@ const props = defineProps({
 }
 
 @media (max-width: 720px) {
-  .navbar-content {
-    display: none;
+  .container {
+    margin: 0 20px !important;
   }
 }
 

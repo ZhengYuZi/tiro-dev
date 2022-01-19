@@ -5,9 +5,9 @@
         <p class="sidebar-group-title">{{ title.text }}</p>
         <ul>
           <li
-            v-for="item in title.children"
+            v-for="(item, index) in title.children"
             :key="item"
-            :class="isActive(item.link)"
+            :class="isActive(item, index)"
             @click="LinkTo(item.link)"
           >
             {{ item.text }}
@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { useRouter } from "vitepress"
-import { useAsideOpenStore } from "../store/asideOpen.ts"
+import { useAsideOpenStore } from "../store/useStore.ts"
 
 const asideOpenStore = useAsideOpenStore()
 const router = useRouter()
@@ -39,8 +39,8 @@ const props = defineProps({
 })
 const suffix = ".html"
 
-const isActive = (link: string) => {
-  if (link + suffix === props.path) {
+const isActive = (item, index) => {
+  if (item.link + suffix === props.path) {
     return "active"
   }
   return ""
