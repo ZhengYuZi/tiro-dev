@@ -13,6 +13,7 @@ export default {
           children: [
             { text: "Select 选择器", link: "/component/select" },
             { text: "Input 输入框", link: "/component/input" },
+            { text: "Image 图片", link: "/component/image" },
             { text: "Icon 图标", link: "/component/icon" },
             { text: "Color 色彩", link: "/component/color" },
           ],

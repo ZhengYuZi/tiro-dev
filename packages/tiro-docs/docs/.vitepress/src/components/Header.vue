@@ -17,16 +17,18 @@
         </div>
       </div>
       <div class="navbar-content">
-        <template v-for="item in nav?.themeConfig?.nav" :key="item.link">
-          <a
-            :href="item.link"
-            :class="`${item.link}.html` === path ? 'active' : ''"
-            >{{ item.text }}</a
-          >
-        </template>
-        <a href="https://github.com/ZhengYuZi/tiro-dev" target="_blank">
-          <ti-icon name="icon-github" :size="18"></ti-icon>
-        </a>
+        <div class="navbar-content--inner">
+          <template v-for="item in nav?.themeConfig?.nav" :key="item.link">
+            <a
+              :href="item.link"
+              :class="`${item.link}.html` === path ? 'active' : ''"
+              >{{ item.text }}</a
+            >
+          </template>
+          <a href="https://github.com/ZhengYuZi/tiro-dev" target="_blank">
+            <ti-icon name="icon-github" :size="18"></ti-icon>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -100,11 +102,17 @@ const props = defineProps({
       }
     }
     .navbar-content {
-      a {
-        font-size: 16px;
-        padding-left: 20px;
-        &.active {
-          color: #3370ff;
+      max-width: 55%;
+      height: 100%;
+      .navbar-content--inner {
+        overflow-x: auto;
+        white-space: nowrap;
+        a {
+          font-size: 16px;
+          padding-left: 20px;
+          &.active {
+            color: #3370ff;
+          }
         }
       }
     }
