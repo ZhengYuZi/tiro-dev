@@ -34,7 +34,7 @@ export default {
     nav: [
       // 顶部右侧导航栏
       { text: "指南", link: "/guide/guide" },
-      { text: "组件", link: "/component/select" },
+      { text: "组件", link: "/component/select", base: "/component" },
     ],
   },
   markdown: {

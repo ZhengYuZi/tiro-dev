@@ -19,8 +19,8 @@ import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
 import Header from "./Header.vue"
-import Arrow from './Arrow.vue'
-import theme from '../../theme/index.js'
+import Arrow from "./Arrow.vue"
+import theme from "../../theme/index.js"
 import { useRoute, useData } from "vitepress"
 const route = useRoute()
 const contents = ref([])
@@ -86,15 +86,14 @@ function findValue(obj: object, str: string) {
   }
   .toc {
     width: 200px;
-    min-height: 100vh;
+    position: fixed;
+    right: 70px;
+    top: 200px;
   }
-}
-.content {
-  padding-bottom: 1.5rem;
-}
-@media (max-width: 420px) {
-  .content {
-    clear: both;
+  &.has-sidebar {
+    .toc {
+      position: static !important;
+    }
   }
 }
 </style>

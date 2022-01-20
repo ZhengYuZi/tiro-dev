@@ -51,7 +51,7 @@ function getAnchors(sidebarLinks) {
     Array.from(document.querySelectorAll('.content .header-anchor'))
   ).filter((anchor) =>
     sidebarLinks.some((sidebarLink) => {
-      return sidebarLink.hash === anchor.hash
+      return sidebarLink.hash.toUpperCase() === anchor.hash.toUpperCase()
     })
   )
 }

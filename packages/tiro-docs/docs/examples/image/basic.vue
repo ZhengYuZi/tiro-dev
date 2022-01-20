@@ -18,7 +18,10 @@ const url = "/cat.jpg"
 
 <style lang="scss" scoped>
 .image-demo {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   justify-content: space-around;
   .image-demo-item {
     font-size: 14px;

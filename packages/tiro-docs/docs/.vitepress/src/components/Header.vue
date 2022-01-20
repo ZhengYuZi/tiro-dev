@@ -21,7 +21,7 @@
           <template v-for="item in nav?.themeConfig?.nav" :key="item.link">
             <a
               :href="item.link"
-              :class="`${item.link}.html` === path ? 'active' : ''"
+              :class="isNav(item)"
               >{{ item.text }}</a
             >
           </template>
@@ -49,6 +49,13 @@ const props = defineProps({
     type: Number,
   },
 })
+
+const isNav = (item)=>{
+  if(item.base && (props.path.includes(item.base))) {
+    return 'active'
+  }
+  return `${item.link}.html` === props.path ? 'active' : ''
+}
 </script>
 
 <style lang="scss" scoped>

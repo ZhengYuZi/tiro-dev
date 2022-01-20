@@ -8,15 +8,17 @@
         v-for="(item, index) in headers"
         :style="`padding-left:${(item.level - 2) * 10}px`"
       >
-        <a class="toc-link" :href="`#${item.title}`">{{ item.title }}</a>
+        <a class="toc-link" :href="`#${item.title.toLowerCase()}`">{{
+          item.title
+        }}</a>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
-import useActiveLink from '../hooks/active-link.js'
+import { ref, onMounted, watch } from "vue"
+import useActiveLink from "../hooks/active-link.js"
 
 const props = defineProps({
   headers: {
