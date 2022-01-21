@@ -49,7 +49,7 @@ const changeContent = () => {
 
 <style lang="scss" scoped>
 .icon-demo {
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   .icon-demo-item {
