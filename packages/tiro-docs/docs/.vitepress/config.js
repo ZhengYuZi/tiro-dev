@@ -11,7 +11,7 @@ export default {
         name: "viewport",
         content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
       },
-    ]
+    ],
   ],
   themeConfig: {
     logo: "/logo.png",
@@ -23,8 +23,8 @@ export default {
             { text: "Select 选择器", link: "/component/select" },
             { text: "Input 输入框", link: "/component/input" },
             { text: "Image 图片", link: "/component/image" },
+            { text: "Button 按钮", link: "/component/button" },
             { text: "Icon 图标", link: "/component/icon" },
-            { text: "Color 色彩", link: "/component/color" },
           ],
         },
         {
