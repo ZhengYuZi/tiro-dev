@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :nav="nav" :path="path" :isShow="contents?.length" />
+    <Navbar :nav="nav" :path="path" :isShow="contents?.length" />
     <Aside :data="contents" :path="path" v-if="contents?.length" />
     <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
       <div class="container">
@@ -18,7 +18,7 @@
 import { ref, onMounted, watch } from "vue"
 import Aside from "./Aside.vue"
 import Headers from "./Headers.vue"
-import Header from "./Header.vue"
+import Navbar from "./Navbar.vue"
 import Arrow from "./Arrow.vue"
 import theme from "../../theme/index.js"
 import { useRoute, useData } from "vitepress"

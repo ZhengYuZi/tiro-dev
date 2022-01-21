@@ -1,9 +1,18 @@
 import { containerPlugin } from "./src/plugins/md-it-plugins"
 
 export default {
-  title: "Tiro", // 顶部左侧标题
-  base: "/", // 项目的根路径
-  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  title: "Tiro",
+  base: "/",
+  head: [
+    ["link", { rel: "icon", href: "/logo.png" }],
+    [
+      "meta",
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+      },
+    ]
+  ],
   themeConfig: {
     logo: "/logo.png",
     sidebar: {

@@ -94,7 +94,7 @@ const LinkTo = (url, suff = suffix) => {
 
       .arrow-info {
         .arrow-title {
-          color: #3370ff;
+          color: var(--c-active);
           text-decoration: underline;
         }
       }

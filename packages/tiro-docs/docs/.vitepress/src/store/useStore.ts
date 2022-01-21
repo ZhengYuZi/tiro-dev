@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useAsideOpenStore = defineStore({
+export const useAsideStore = defineStore({
     id: 'aside',
     state: () => {
         return {
@@ -13,6 +13,6 @@ export const useAsideOpenStore = defineStore({
         },
         updateClose() {
             this.open && (this.open = !this.open)
-        },
+        }
     }
 })

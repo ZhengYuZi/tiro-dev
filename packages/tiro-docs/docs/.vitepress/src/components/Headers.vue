@@ -56,7 +56,7 @@ useActiveLink(activeIndex)
       }
       &.active {
         a {
-          color: #3370ff;
+          color: var(--c-active);
         }
       }
     }

@@ -4,7 +4,7 @@
       <div class="navbar-left">
         <div
           class="navbar-list"
-          @click="asideOpenStore.updateOpen()"
+          @click="asideStore.updateOpen()"
           v-if="isShow"
         >
           <ti-icon name="icon-list" :size="30"></ti-icon>
@@ -35,8 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAsideOpenStore } from "../store/useStore.ts"
-const asideOpenStore = useAsideOpenStore()
+import { useAsideStore } from "../store/useStore.ts"
+const asideStore = useAsideStore()
 
 const props = defineProps({
   nav: {
@@ -118,7 +118,7 @@ const isNav = (item)=>{
           font-size: 16px;
           padding-left: 20px;
           &.active {
-            color: #3370ff;
+            color: var(--c-active);
           }
         }
       }

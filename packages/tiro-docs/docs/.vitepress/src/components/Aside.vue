@@ -1,13 +1,14 @@
 <template>
-  <aside class="sidebar" :class="asideOpenStore.open ? 'open' : ''">
+  <aside class="sidebar" :class="asideStore.open ? 'open' : ''">
     <div class="sidebar-groups">
       <section v-for="title in data" :key="title">
         <p class="sidebar-group-title">{{ title.text }}</p>
         <ul>
           <li
-            v-for="(item, index) in title.children"
+            v-for="item in title.children"
             :key="item"
-            :class="isActive(item, index)"
+            class="sidebar-group-item"
+            :class="isActive(item.link)"
             @click="LinkTo(item.link)"
           >
             {{ item.text }}
@@ -18,16 +19,16 @@
   </aside>
   <div
     class="sidebar-mask--"
-    v-if="asideOpenStore.open"
-    @click="asideOpenStore.updateClose()"
+    v-if="asideStore.open"
+    @click="asideStore.updateClose()"
   ></div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from "vitepress"
-import { useAsideOpenStore } from "../store/useStore.ts"
+import { useAsideStore } from "../store/useStore.ts"
 
-const asideOpenStore = useAsideOpenStore()
+const asideStore = useAsideStore()
 const router = useRouter()
 const props = defineProps({
   data: {
@@ -39,15 +40,12 @@ const props = defineProps({
 })
 const suffix = ".html"
 
-const isActive = (item, index) => {
-  if (item.link + suffix === props.path) {
-    return "active"
-  }
-  return ""
+const isActive = (link) => {
+  return link + suffix === props.path ? "active" : ""
 }
 
 const LinkTo = (url, suff = suffix) => {
-  asideOpenStore.updateClose()
+  asideStore.updateClose()
   router.go(url + suff)
 }
 </script>
@@ -85,11 +83,11 @@ const LinkTo = (url, suff = suffix) => {
       margin: 4px 20px;
       cursor: pointer;
       &.active {
-        color: #3370ff;
+        color: var(--c-active);
         background-color: var(--c-white-dark);
       }
       &:hover {
-        color: #3370ff;
+        color: var(--c-active);
       }
     }
   }
