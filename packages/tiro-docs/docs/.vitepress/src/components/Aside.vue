@@ -21,6 +21,7 @@
     class="sidebar-mask--"
     v-if="asideStore.open"
     @click="asideStore.updateClose()"
+    @touchmove = "touchmove"
   ></div>
 </template>
 
@@ -48,6 +49,10 @@ const LinkTo = (url, suff = suffix) => {
   asideStore.updateClose()
   router.go(url + suff)
 }
+
+const touchmove = (e)=>{
+  e.preventDefault()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -65,7 +70,7 @@ const LinkTo = (url, suff = suffix) => {
   transition: transform 0.25s ease;
 
   .sidebar-groups {
-    padding-top: 20px;
+    padding: 20px 0;
     font-size: 14px;
     .sidebar-group-title {
       padding-left: 30px;
@@ -113,5 +118,6 @@ const LinkTo = (url, suff = suffix) => {
   z-index: 2;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 </style>

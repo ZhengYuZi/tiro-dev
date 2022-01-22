@@ -52,6 +52,12 @@ function findValue(obj: object, str: string) {
 </script>
 
 <style lang="scss" scoped>
+// @media (max-width: 720px) {
+//   .container {
+//     height: calc(100vh - var(--header-height));
+//     overflow: hidden;
+//   }
+// }
 @media (min-width: 720px) {
   .has-sidebar {
     margin-left: 15rem;
