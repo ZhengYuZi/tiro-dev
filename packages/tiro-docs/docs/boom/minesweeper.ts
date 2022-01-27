@@ -1,26 +1,10 @@
-const tip = {
-  name: "tip",
-  url: "./images/tip.png",
-}
-const boom = {
-  name: "boom",
-  url: "./images/boom.png",
-}
 const blank = {
   name: "blank",
-}
-const background = {
-  name: "background",
-  url: "./images/background.png"
 }
 
 const area = {}
 const tips = {}
 let Mines = []
-
-interface IPath extends Event {
-  path?: any
-}
 
 class Minesweeper {
   public row: number
@@ -40,29 +24,25 @@ class Minesweeper {
   private init() {
     this.el.width = this.row * this.squareWidth
     this.el.height = this.column * this.squareWidth
-    this.el.style.backgroundImage = `url(${background.url})`
+    this.el.style.border = '5px solid #476582'
+    this.el.style.boxShadow = '0 14px 44px rgba(0, 0, 0, 0.12), 0 3px 9px rgba(0, 0, 0, 0.12)'
   }
 
-  public rect(images, mines: number) {
-    this.setScenes(images)
+  public rect(mines: number) {
+    this.setScenes()
     this.setMines(mines)
     this.bindClick()
   }
 
-  //生成图片
-  private drawImage(
-    src: string,
-    fun: (this: GlobalEventHandlers, ev: IPath) => any
-  ) {
-    const img = new Image()
-    img.src = src
-    img.onload = fun
+  private drawSquare(x, y) {
+    this.ctx.fillStyle = '#ccc'
+    this.ctx.fillRect(x * this.squareWidth + 1, y * this.squareWidth + 1, this.squareWidth-2, this.squareWidth-2)
   }
 
   //生成文字
-  private drawText(text, x, y) {
-    this.ctx.font = "18px bold 黑体"
-    this.ctx.fillStyle = "#ff0"
+  private drawText(text, x, y, fontSize = 18) {
+    this.ctx.font = `${fontSize}px bold 黑体`
+    this.ctx.fillStyle = "#476582"
     this.ctx.textAlign = "center"
     this.ctx.textBaseline = "middle"
     this.ctx.fillText(
@@ -73,28 +53,15 @@ class Minesweeper {
   }
 
   //加载素材
-  private setScenes(images) {
+  private setScenes() {
     const total = this.row * this.column
 
     for (let index = 0; index < total; index++) {
-      //循环生成图片
-      //随机植物
-      const randomPlant = Math.round(Math.random() * (images.length - 1))
       //根据index获取每个方格的横向与纵向的序号
       const row = index < this.column ? 0 : Math.floor(index / this.column)
       const column = index % this.column
       //生成图片
-      this.drawImage(images[randomPlant].url, (e) => {
-        const img = e.path[0]
-        this.ctx.drawImage(
-          img,
-          row * this.squareWidth,
-          column * this.squareWidth,
-          this.squareWidth,
-          this.squareWidth
-        )
-        area[`${row}${column}`] = images[randomPlant].url
-      })
+      this.drawSquare(row, column)
     }
   }
 
@@ -106,7 +73,6 @@ class Minesweeper {
       const item = `${x}${y}`
       if (Mines.indexOf(item) === -1) {
         Mines.push(item)
-        area[item] = boom.url
       }
     }
   }
@@ -135,18 +101,15 @@ class Minesweeper {
   private clickBoom = (x, y) => {
     //如果是雷
     if (Mines.includes(`${x}${y}`)) {
-      this.drawImage(boom.url, (e) => {
-        const img = e.path[0]
-        this.ctx.drawImage(
-          img,
-          x * this.squareWidth,
-          y * this.squareWidth,
-          this.squareWidth,
-          this.squareWidth
-        )
-        area[`${x}${y}`] = boom.url
-        console.log("游戏结束")
-      })
+      this.ctx.clearRect(
+        x * this.squareWidth,
+        y * this.squareWidth,
+        this.squareWidth,
+        this.squareWidth
+      )
+      this.drawText('☠', x, y, 25)
+      area[`${x}${y}`] = 'boom'
+      console.log('GAME OVER!!!')
       return
     }
     //不是雷
@@ -178,23 +141,13 @@ class Minesweeper {
   }
 
   private tipBoom = (x, y) => {
-    if (area[`${x}${y}`] === boom.url) return
-    const img = new Image()
+    if (area[`${x}${y}`] === 'boom') return
     if (tips[`${x}${y}`]) {
-      img.src = area[`${x}${y}`]
+      this.drawSquare(x, y)
       tips[`${x}${y}`] = null
     } else {
-      img.src = tip.url
-      tips[`${x}${y}`] = tip.url
-    }
-    img.onload = () => {
-      this.ctx.drawImage(
-        img,
-        x * this.squareWidth,
-        y * this.squareWidth,
-        this.squareWidth,
-        this.squareWidth
-      )
+      this.drawText('★', x, y, 25)
+      tips[`${x}${y}`] = 'tip'
     }
   }
 

@@ -13,24 +13,10 @@ const row = ref(9)
 const column = ref(9)
 const squareWidth = ref(32)
 const mines = ref(10)
-const plants = [
-  {
-    name: "flower",
-    url: "./images/flower.png",
-  },
-  {
-    name: "grass",
-    url: "./images/grass.png",
-  },
-  {
-    name: "tree",
-    url: "./images/tree.png",
-  }
-]
 
 onMounted(() => {
   const minesweeper = new Minesweeper(row.value, column.value, squareWidth.value)
-  minesweeper.rect(plants, mines.value)
+  minesweeper.rect(mines.value)
 })
 
 </script>
