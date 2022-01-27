@@ -1,6 +1,6 @@
 <template>
   <div class="boom-page">
-    <div class="boom-area">
+    <div class="boom-area" :style="`width:${row * squareWidth}px;height:${column * squareWidth}px`">
       <canvas id="minesweeper"></canvas>
     </div>
   </div>
@@ -11,6 +11,7 @@ import { ref, onMounted } from "vue"
 import Minesweeper from './minesweeper'
 const row = ref(9)
 const column = ref(9)
+const squareWidth = ref(32)
 const mines = ref(10)
 const plants = [
   {
@@ -27,8 +28,8 @@ const plants = [
   }
 ]
 
-onMounted(()=>{
-  const minesweeper = new Minesweeper(row.value, column.value)
+onMounted(() => {
+  const minesweeper = new Minesweeper(row.value, column.value, squareWidth.value)
   minesweeper.rect(plants, mines.value)
 })
 

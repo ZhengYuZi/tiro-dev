@@ -1,7 +1,3 @@
-const blank = {
-  name: "blank",
-  url: "./images/blank.png",
-}
 const tip = {
   name: "tip",
   url: "./images/tip.png",
@@ -10,10 +6,21 @@ const boom = {
   name: "boom",
   url: "./images/boom.png",
 }
+const blank = {
+  name: "blank",
+}
+const background = {
+  name: "background",
+  url: "./images/background.png"
+}
 
 const area = {}
 const tips = {}
 let Mines = []
+
+interface IPath extends Event {
+  path?: any
+}
 
 class Minesweeper {
   public row: number
@@ -33,6 +40,7 @@ class Minesweeper {
   private init() {
     this.el.width = this.row * this.squareWidth
     this.el.height = this.column * this.squareWidth
+    this.el.style.backgroundImage = `url(${background.url})`
   }
 
   public rect(images, mines: number) {
@@ -41,25 +49,56 @@ class Minesweeper {
     this.bindClick()
   }
 
+  //生成图片
+  private drawImage(
+    src: string,
+    fun: (this: GlobalEventHandlers, ev: IPath) => any
+  ) {
+    const img = new Image()
+    img.src = src
+    img.onload = fun
+  }
+
+  //生成文字
+  private drawText(text, x, y) {
+    this.ctx.font = "18px bold 黑体"
+    this.ctx.fillStyle = "#ff0"
+    this.ctx.textAlign = "center"
+    this.ctx.textBaseline = "middle"
+    this.ctx.fillText(
+      `${text}`,
+      x * this.squareWidth + this.squareWidth / 2,
+      y * this.squareWidth + this.squareWidth / 2
+    )
+  }
+
+  //加载素材
   private setScenes(images) {
     const total = this.row * this.column
+
     for (let index = 0; index < total; index++) {
+      //循环生成图片
+      //随机植物
       const randomPlant = Math.round(Math.random() * (images.length - 1))
-      const img = new Image()
-      img.src = images[randomPlant].url
+      //根据index获取每个方格的横向与纵向的序号
       const row = index < this.column ? 0 : Math.floor(index / this.column)
       const column = index % this.column
-      img.onload = () => {
+      //生成图片
+      this.drawImage(images[randomPlant].url, (e) => {
+        const img = e.path[0]
         this.ctx.drawImage(
           img,
           row * this.squareWidth,
-          column * this.squareWidth
+          column * this.squareWidth,
+          this.squareWidth,
+          this.squareWidth
         )
         area[`${row}${column}`] = images[randomPlant].url
-      }
+      })
     }
   }
 
+  //加载地雷
   private setMines(mines: number) {
     while (Mines.length < mines) {
       const x = Math.round(Math.random() * (this.row - 1))
@@ -82,7 +121,7 @@ class Minesweeper {
     const x = Math.floor(e.offsetX / this.squareWidth)
     const y = Math.floor(e.offsetY / this.squareWidth)
 
-    if (area[`${x}${y}`] === blank.url) {
+    if (area[`${x}${y}`] === blank.name) {
       return
     }
 
@@ -94,34 +133,52 @@ class Minesweeper {
   }
 
   private clickBoom = (x, y) => {
-    const img = new Image()
+    //如果是雷
     if (Mines.includes(`${x}${y}`)) {
-      img.src = boom.url
-      img.onload = () => {
-        this.ctx.drawImage(img, x * this.squareWidth, y * this.squareWidth)
+      this.drawImage(boom.url, (e) => {
+        const img = e.path[0]
+        this.ctx.drawImage(
+          img,
+          x * this.squareWidth,
+          y * this.squareWidth,
+          this.squareWidth,
+          this.squareWidth
+        )
+        area[`${x}${y}`] = boom.url
         console.log("游戏结束")
-      }
+      })
       return
     }
-    const findBoom = (x, y) => {
-      img.src = blank.url
-      area[`${x}${y}`] = blank.url
-      const aroundBoomNum = this.aroundBoom(x, y)
-      // if (x < this.row && y < this.column) {
-        
-      // }
-      img.onload = () => {
-        this.ctx.drawImage(img, x * this.squareWidth, y * this.squareWidth)
-        if(!aroundBoomNum) {
-          console.log(1);
-        }
-      }
-    }
+    //不是雷
+    this.findBoom(x, y)
+  }
 
-    findBoom(x, y)
+  private findBoom = (x, y) => {
+    if (x < 0 || x > this.row - 1) return
+    if (y < 0 || y > this.column - 1) return
+    if (area[`${x}${y}`] === blank.name) return
+
+    //清除素材
+    this.ctx.clearRect(
+      x * this.squareWidth,
+      y * this.squareWidth,
+      this.squareWidth,
+      this.squareWidth
+    )
+    area[`${x}${y}`] = blank.name //设置area当前位置已点击
+    const aroundBoomNum = this.aroundBoom(x, y) //寻找周围有几颗雷
+    this.drawText(aroundBoomNum, x, y) //显示周围雷数量
+
+    if (!aroundBoomNum) {
+      this.findBoom(x + 1, y)
+      this.findBoom(x - 1, y)
+      this.findBoom(x, y - 1)
+      this.findBoom(x, y + 1)
+    }
   }
 
   private tipBoom = (x, y) => {
+    if (area[`${x}${y}`] === boom.url) return
     const img = new Image()
     if (tips[`${x}${y}`]) {
       img.src = area[`${x}${y}`]
@@ -131,7 +188,13 @@ class Minesweeper {
       tips[`${x}${y}`] = tip.url
     }
     img.onload = () => {
-      this.ctx.drawImage(img, x * this.squareWidth, y * this.squareWidth)
+      this.ctx.drawImage(
+        img,
+        x * this.squareWidth,
+        y * this.squareWidth,
+        this.squareWidth,
+        this.squareWidth
+      )
     }
   }
 
