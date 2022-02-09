@@ -1,4 +1,7 @@
-
+:root {
+  --table-bg: rgba(250, 250, 252, 1);
+  --table-border: rgba(239, 239, 245, 1);
+}
 .content {
   line-height: 1.68;
   -webkit-text-size-adjust: 100%;
@@ -157,27 +160,45 @@
   color: inherit;
 }
 .content table {
-  color: black;
+  display: inline-table;
+  width: 100%;
+  color: #2c3e50;
   border-collapse: collapse;
   background-color: white;
   border-spacing: 2px;
-  font-size: 1em;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+th, td {
+  border: none;
 }
 .content th,
 .content td {
-  border-color: #dee0e3;
-  border-width: 1px;
-  border-style: solid;
+  font-size: 0.9em;
+  padding: 8px 8px;
 }
 .content th {
-  padding: 8px 8px;
-  font-size: 1em;
-  font-weight: 500;
+  font-weight: bold;
+  background: var(--table-bg);
+}
+.content th:first-child , .content td:first-child{
+  border-left: 1px solid var(--table-border);
+}
+.content th:last-child , .content td:last-child{
+  border-right: 1px solid var(--table-border);
 }
 .content td {
-  padding: 8px 8px;
-  font-size: 1em;
   font-weight: normal;
+}
+.content tr {
+  background-color: white;
+  border: none;
+}
+.content tr:first-child {
+  border-top: 1px solid var(--table-border);
+}
+.content tr:last-child {
+  border-bottom: 1px solid var(--table-border);
 }
 .content div[id^="mweb-chart-ele"] svg {
   background-color: white;

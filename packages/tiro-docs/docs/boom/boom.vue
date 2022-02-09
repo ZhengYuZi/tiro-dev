@@ -1,6 +1,9 @@
 <template>
   <div class="boom-page">
-    <div class="boom-area" :style="`width:${row * squareWidth}px;height:${column * squareWidth}px`">
+    <div class="boom-area">
+      <div>
+        <span @click="clear">重开</span>
+      </div>
       <canvas id="minesweeper"></canvas>
     </div>
   </div>
@@ -11,13 +14,19 @@ import { ref, onMounted } from "vue"
 import Minesweeper from './minesweeper'
 const row = ref(9)
 const column = ref(9)
-const squareWidth = ref(32)
+const squareWidth = ref(30)
 const mines = ref(10)
 
+let minesweeper
+
 onMounted(() => {
-  const minesweeper = new Minesweeper(row.value, column.value, squareWidth.value)
+  minesweeper = new Minesweeper(row.value, column.value, squareWidth.value)
   minesweeper.rect(mines.value)
 })
+
+const clear = () =>{
+  minesweeper.reOpen()
+}
 
 </script>
 

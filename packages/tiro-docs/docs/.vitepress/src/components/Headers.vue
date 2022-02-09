@@ -1,6 +1,5 @@
 <template>
   <nav class="toc-content">
-    <span class="toc-content-heading">目录</span>
     <ul class="toc-items">
       <li
         class="toc-item"
@@ -43,10 +42,6 @@ useActiveLink(activeIndex)
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .toc-content-heading {
-    font-weight: 600;
-    color: var(--c-text-light-2);
   }
   .toc-items {
     margin-top: 10px;

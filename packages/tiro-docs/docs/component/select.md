@@ -99,31 +99,9 @@ const data = [
 ```
 :::
 
-## 清空
-
-包含清空按钮，可将选择器清空为初始状态
-为 `ti-select` 设置 `clearable` 属性，则可将选择器清空。 需要注意的是，`clearable` 属性仅适用于单选。
-
-::: show
-<ti-select clearable width="200px" :options="data" />
-
-``` vue
-<template>
-    <ti-select clearable width="200px" :options="data" />
-</template>
-<script setup>
-const data = [
-    {
-        label: '苹果',
-        value: 'apple'
-    },{
-        label: '车',
-        value: 'car'
-    },{
-        label: '水',
-        value: 'water'
-    }
-]
-</script>
-```
-:::
+## API
+|  属性  | 类型 | 默认值 | 说明 |
+|  :----:  |  :----: |  :----: |  :----:  |
+| v-model  | string / number / boolean | — | 选中项绑定值 |
+| multiple | boolean | false | 是否多选 |
+| disabled | boolean | false | 是否禁用 |

@@ -1,8 +1,8 @@
 <template>
     <div class="home">
-        <h1>网站快速成型工具</h1>
-        <p>一套为开发者、设计师和产品经理准备的基于 Vue 3 的桌面端组件库</p>
-        <img src="/theme-index-blue.png" />
+        <img src="/logo.png" />
+        <h1>Tiro</h1>
+        <h4>一套基于 Vue 3 的前端组件库</h4>
     </div>
 </template>
 
