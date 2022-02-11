@@ -43,6 +43,8 @@ const copy = async (Msg) => {
 <style lang="scss" scoped>
 .ti-example {
   margin: 20px 0px;
+  background-color: var(--c-bg);
+  color: var(--c-text);
   .example-box {
     border: 1px solid var(--c-border);
     border-radius: 2px;

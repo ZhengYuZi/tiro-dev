@@ -37,6 +37,8 @@ useActiveLink(activeIndex)
   top: 150px;
   right: 70px;
   font-size: 13px;
+  background-color: var(--c-bg);
+  color: var(--c-text);
   ul,
   li {
     list-style: none;

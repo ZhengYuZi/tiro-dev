@@ -26,6 +26,7 @@ const url = "/cat.jpg"
   .image-demo-item {
     font-size: 14px;
     text-align: center;
+    padding: 5px;
   }
 }
 </style>

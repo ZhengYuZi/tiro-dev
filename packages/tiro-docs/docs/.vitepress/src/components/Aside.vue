@@ -65,6 +65,7 @@ const touchmove = (e)=>{
   border-right: 1px solid var(--c-border);
   width: 15rem;
   background-color: var(--c-bg);
+  color: var(--c-text);
   overflow-y: auto;
   transform: translateX(-100%);
   transition: transform 0.25s ease;
@@ -83,13 +84,11 @@ const touchmove = (e)=>{
       margin: 0;
     }
     li {
-      color: #6e6e6e;
       padding: 6px 20px;
       margin: 4px 20px;
       cursor: pointer;
       &.active {
         color: var(--c-active);
-        background-color: var(--c-white-dark);
       }
       &:hover {
         color: var(--c-active);

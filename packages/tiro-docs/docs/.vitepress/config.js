@@ -42,7 +42,6 @@ export default {
     },
     nav: [
       // 顶部右侧导航栏
-      { text: "BOOM!", link: "/boom/boom" },
       { text: "指南", link: "/guide/guide" },
       { text: "组件", link: "/component/select", base: "/component" },
     ],

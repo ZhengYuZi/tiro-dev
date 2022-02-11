@@ -74,6 +74,8 @@ const LinkTo = (url, suff = suffix) => {
   padding: 50px 0;
   display: flex;
   justify-content: space-between;
+  background-color: var(--c-bg);
+  color: var(--c-text);
 
   .arrow-inner {
     width: 30%;
@@ -87,10 +89,10 @@ const LinkTo = (url, suff = suffix) => {
     align-items: center;
     cursor: pointer;
     text-decoration: none;
-    color: var(--c-text-light-1);
+    color: var(--c-text);
 
     &:hover {
-      background-color: var(--c-white-dark);
+      background-color: var(--table-bg);
 
       .arrow-info {
         .arrow-title {

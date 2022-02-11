@@ -20,9 +20,7 @@
           v-for="(item, index) in options"
           :key="item.label + item.value"
           @mousedown="handleSelect(index)"
-        >
-          {{ item.label }}
-        </div>
+        >{{ item.label }}</div>
       </div>
     </div>
   </div>
@@ -32,7 +30,7 @@
 import { PropType, Ref, ref } from "vue"
 import { IOptions, IOptionValue } from "../../types/select"
 
-const emit = defineEmits(["select"])
+const emit = defineEmits(["select", "update:value"])
 
 const isFocus: Ref<boolean> = ref(false)
 const isActive: Ref<number> = ref(-1)
@@ -60,6 +58,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  value: {
+    type: String as PropType<IOptionValue>,
+    default: ''
+  }
 })
 
 const downArrowTurn = () => {
@@ -77,7 +79,9 @@ const handleSelect = (index: number) => {
 
 const singleSelect = (index: number) => {
   isActive.value = index
-  emit("select", props.options[index].value)
+  const select = props.options[index].value
+  emit("select", select)
+  emit("update:value", select)
 }
 
 const multipleSelect = (index: number) => {
@@ -93,6 +97,7 @@ const multipleSelect = (index: number) => {
   }
 
   emit("select", activesValue.value)
+  emit("update:value", activesValue.value)
 }
 
 const handleActive = (index: number): "active" | "" => {

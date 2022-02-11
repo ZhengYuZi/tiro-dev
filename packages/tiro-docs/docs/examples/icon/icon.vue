@@ -31,6 +31,8 @@ const icons = [
   { name: "箭头左", code: "icon-arrow-left" },
   { name: "下拉", code: "icon-drop-down" },
   { name: "搜索", code: "icon-search" },
+  { name: "月亮", code: "icon-moon" },
+  { name: "太阳", code: "icon-sun" },
 ]
 const dataContentBefore = ref("点击复制")
 const copy = async(Msg) => {

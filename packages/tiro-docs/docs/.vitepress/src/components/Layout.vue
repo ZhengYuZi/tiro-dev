@@ -3,13 +3,15 @@
     <Navbar :nav="nav" :path="path" :isShow="contents?.length" />
     <Aside :data="contents" :path="path" v-if="contents?.length" />
     <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
-      <div class="container">
-        <Content class="content" />
-        <Arrow :data="contents" :path="path" />
+      <div class="page-box">
+        <div class="container">
+          <Content class="content" />
+          <Arrow :data="contents" :path="path" />
+        </div>
+        <aside class="toc" v-if="headers?.length">
+          <Headers :headers="headers" />
+        </aside>
       </div>
-      <aside class="toc" v-if="headers?.length">
-        <Headers :headers="headers" />
-      </aside>
     </main>
   </div>
 </template>
@@ -70,7 +72,7 @@ function findValue(obj: object, str: string) {
   }
 }
 @media (min-width: 1200px) {
-  .page {
+  .page-box {
     display: flex;
     .container {
       flex-grow: 1;
@@ -79,16 +81,20 @@ function findValue(obj: object, str: string) {
 }
 .page {
   padding-top: var(--header-height);
-  .container {
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    max-width: 52rem;
-  }
-  .toc {
-    width: 200px;
-    position: fixed;
-    right: 70px;
-    top: 200px;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  .page-box {
+    .container {
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      max-width: 52rem;
+    }
+    .toc {
+      width: 200px;
+      position: fixed;
+      right: 70px;
+      top: 200px;
+    }
   }
   &.has-sidebar {
     .toc {

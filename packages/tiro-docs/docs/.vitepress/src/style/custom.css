@@ -5,7 +5,7 @@
 
   --c-white: #ffffff;
   --c-white-dark: #f8f8f8;
-  --c-black: #000000;
+  --c-black: #22272e;
   --c-border: #f0f0f0;
 
   --c-divider-light: rgba(60, 60, 67, 0.12);
@@ -14,11 +14,12 @@
   --c-text-light-1: #2c3e50;
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
+  --c-text-dark-1: #adbac7;
 
   --c-brand: #3eaf7c;
   --c-brand-light: #4abf8a;
 
-  --c-active: #3370ff;
+  --c-blue: #3370ff;
 
   /**
    * Typography
@@ -74,6 +75,9 @@
   --code-font-size: 14px;
   --code-inline-bg-color: rgba(27, 31, 35, 0.05);
   --code-bg-color: #f5f7fa;
+
+  --c-active: var(--c-blue);
+  --table-bg: var(--c-white-dark);
 }
 
 h2 {
@@ -86,9 +90,16 @@ div[class*="language-"] {
 }
 
 [class*="language-"] code {
-  color: #282c34;
+  color: var(--c-text);
 }
 
 .token.punctuation {
-  color: rgb(117, 117, 117);
+  color: var(--c-text);
+}
+
+html.dark {
+  --c-bg: var(--c-black);
+  --c-text: var(--c-text-dark-1);
+  --code-bg-color: var(--c-black);
+  --table-bg: var(--c-text-light-2);
 }
