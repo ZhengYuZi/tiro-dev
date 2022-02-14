@@ -101,7 +101,7 @@ const data = [
 :::
 
 ## 获取选中项
-可以通过 `select` 事件与 `v-model:value` 属性来获取选中项的绑定值
+可以通过 `select` 事件或 `v-model:value` 属性来获取选中项的绑定值
 
 ::: show
 <GetValue />
@@ -143,16 +143,14 @@ const select = (val) => {
 ```
 :::
 
-## API
-
-### 属性
+## 属性
 | 属性 | 类型 | 默认值 | 说明 |
 | :----: | :----: | :----: | :----: |
 | v-model:value  | string / number / boolean | — | 选中项绑定值 |
 | multiple | boolean | false | 是否多选 |
 | disabled | boolean | false | 是否禁用 |
 
-### 事件
+## 事件
 | 事件名 | 参数 | 说明 |
 | :----: | :----: | :----: |
 | select | 当前选中值 | 选中值发生变化时触发 |

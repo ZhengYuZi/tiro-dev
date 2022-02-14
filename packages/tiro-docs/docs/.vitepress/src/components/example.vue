@@ -63,7 +63,7 @@ const copy = async (Msg) => {
       padding: 0 5px;
     }
     & > *:hover {
-      color: var(--c-black);
+      color: var(--c-text);
     }
   }
   .example-code {

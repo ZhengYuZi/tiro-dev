@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <Navbar :nav="nav" :path="path" :isShow="contents?.length" />
-    <Aside :data="contents" :path="path" v-if="contents?.length" />
-    <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
-      <div class="page-box">
-        <div class="container">
-          <Content class="content" />
-          <Arrow :data="contents" :path="path" />
-        </div>
-        <aside class="toc" v-if="headers?.length">
-          <Headers :headers="headers" />
-        </aside>
+  <Navbar :nav="nav" :path="path" :isShow="contents?.length" />
+  <Aside :data="contents" :path="path" v-if="contents?.length" />
+  <main class="page" :class="contents?.length ? 'has-sidebar' : ''">
+    <div class="page-box">
+      <div class="container">
+        <Content class="content" />
+        <Arrow :data="contents" :path="path" />
       </div>
-    </main>
-  </div>
+      <aside class="toc" v-if="headers?.length">
+        <Headers :headers="headers" />
+      </aside>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">

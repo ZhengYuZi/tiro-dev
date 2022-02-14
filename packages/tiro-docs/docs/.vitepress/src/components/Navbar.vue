@@ -31,7 +31,6 @@
 import { ref, onMounted } from 'vue'
 import { useAsideStore } from "../store/useStore.ts"
 const asideStore = useAsideStore()
-const html = document.documentElement
 const sun = 'icon-sun'
 const moon = 'icon-moon'
 const mode = ref(moon)
@@ -49,6 +48,7 @@ const props = defineProps({
 })
 
 onMounted(() => {
+  const html = document.documentElement
   const modeValue = localStorage.getItem("mode");
   if (modeValue) {
     mode.value = modeValue
@@ -64,6 +64,7 @@ const isNav = (item) => {
 }
 
 const toggleMode = () => {
+  const html = document.documentElement
   if (mode.value === moon) {
     mode.value = sun
     html.classList.add('dark')

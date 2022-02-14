@@ -80,6 +80,17 @@
   --table-bg: var(--c-white-dark);
 }
 
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.dark {
+  --c-bg: var(--c-black);
+  --c-text: var(--c-text-dark-1);
+  --code-bg-color: var(--c-black);
+  --table-bg: var(--c-text-light-2);
+}
+
 h2 {
   border-bottom: none;
 }
@@ -95,11 +106,4 @@ div[class*="language-"] {
 
 .token.punctuation {
   color: var(--c-text);
-}
-
-html.dark {
-  --c-bg: var(--c-black);
-  --c-text: var(--c-text-dark-1);
-  --code-bg-color: var(--c-black);
-  --table-bg: var(--c-text-light-2);
 }

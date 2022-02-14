@@ -8,7 +8,7 @@
       <input
         class="ti-input--inner"
         :class="[clearable ? 'is-clearable' : null, type === types.password ? 'is-password' : null]"
-        :style="`border-radius:${borderRadius}px`"
+        :style="`border-radius:${borderRadius}`"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -105,6 +105,7 @@ const inputChange = (e: Event) => {
 
 const inputEnter = (e: Event) => {
   const value = (<HTMLInputElement>e.target).value
+  emit("input", value)
   emit("update:modelValue", value)
 }
 
