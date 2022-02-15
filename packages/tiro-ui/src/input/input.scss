@@ -24,16 +24,29 @@
             border: 1px solid $ti-c;
             padding: 0px 10px;
 
-            // &.is-clearable {
-            //     padding-right: 25px;
-            // }
+            &.is-clearable {
+                padding-right: 25px;
+            }
 
-            // &.is-password {
-            //     padding-right: 25px;
-            // }
+            &.is-password {
+                padding-right: 25px;
+            }
 
             &:focus {
                 border: 2px solid $ti-base;
+            }
+
+            &::-webkit-input-placeholder{
+                color: $ti-c;
+            }
+            &::-moz-placeholder{   /* Mozilla Firefox 19+ */
+                color: $ti-c;
+            }
+            &:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+                color: $ti-c;
+            }
+            &:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+                color: $ti-c;
             }
         }
 

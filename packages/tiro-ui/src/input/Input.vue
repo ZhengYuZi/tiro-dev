@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import { onMounted, PropType, Ref, ref } from "vue"
 import { ITypes, IType } from "../../types/input"
+import TiIcon from '@tiro/icons'
 
 const emit = defineEmits([
   "input",

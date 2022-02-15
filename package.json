@@ -3,8 +3,10 @@
   "author": "ZhengYuZi",
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm dev --filter \"@tiro/docs\"",
-    "build": "pnpm build --filter \"@tiro/docs\""
+    "dev": "pnpm dev --filter \"@tiro/project\"",
+    "build": "pnpm build --filter \"@tiro/project\"",
+    "dev:docs": "pnpm dev --filter \"@tiro/docs\"",
+    "build:docs": "pnpm build --filter \"@tiro/docs\""
   },
   "dependencies": {
     "sass": "^1.48.0",

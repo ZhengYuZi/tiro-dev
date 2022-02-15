@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import { PropType, Ref, ref } from "vue"
 import { IOptions, IOptionValue } from "../../types/select"
+import TiIcon from '@tiro/icons'
 
 const emit = defineEmits(["select", "update:value"])
 
