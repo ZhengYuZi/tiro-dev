@@ -18,7 +18,7 @@ const data = [
 
 <template>
   <div class="main">
-    <ti-input width="200px" v-model="input" clearable></ti-input>
+    <ti-input width="200px" v-model="input" type="password"></ti-input>
     <ti-select width="200px" multiple :options="data" />
   </div>
 </template>

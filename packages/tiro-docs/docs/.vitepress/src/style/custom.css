@@ -87,7 +87,7 @@ body {
 html.dark {
   --c-bg: var(--c-black);
   --c-text: var(--c-text-dark-1);
-  --code-bg-color: var(--c-black);
+  --code-bg-color: #000000;
   --table-bg: var(--c-text-light-2);
 }
 

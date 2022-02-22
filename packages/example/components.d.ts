@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     TiCard: typeof import('@tiro/ui/src/card')['CardComponent']
+    TiImage: typeof import('@tiro/ui/src/image')['ImageComponent']
     TiInput: typeof import('@tiro/ui/src/input')['InputComponent']
     TiSelect: typeof import('@tiro/ui/src/select')['SelectComponent']
   }

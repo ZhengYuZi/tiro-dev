@@ -1,6 +1,7 @@
+import { defineConfig } from 'vitepress'
 import { containerPlugin } from "./src/plugins/md-it-plugins"
 
-export default {
+export default defineConfig({
   title: "Tiro",
   base: "/",
   head: [
@@ -51,4 +52,4 @@ export default {
       md.use(...containerPlugin())
     },
   },
-}
+})

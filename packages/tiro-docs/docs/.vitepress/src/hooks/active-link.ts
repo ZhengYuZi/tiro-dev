@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted } from 'vue'
-import { throttle } from '../utils/index.js'
+import { throttle } from '../utils/index'
 
 export default function useActiveLink(activeIndex) {
 
@@ -51,13 +51,14 @@ function getAnchors(sidebarLinks) {
     Array.from(document.querySelectorAll('.content .header-anchor'))
   ).filter((anchor) =>
     sidebarLinks.some((sidebarLink) => {
-      return sidebarLink.hash.toUpperCase() === anchor.hash.toUpperCase()
+      return sidebarLink.hash.toUpperCase() === (anchor as HTMLAnchorElement).hash.toUpperCase()
     })
   )
 }
 
 function getPageOffset() {
-  return (document.querySelector('.navbar')).offsetHeight
+  const navbar = document.querySelector('.navbar') as HTMLElement
+  return navbar.offsetHeight
 }
 
 function getAnchorTop(anchor) {
@@ -73,7 +74,7 @@ function isAnchorActive(
   index,
   anchor,
   nextAnchor
-) {
+):[boolean, string] {
   const scrollTop = window.scrollY
   if (index === 0 && scrollTop === 0) {
     return [true, null]

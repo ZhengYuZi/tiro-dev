@@ -32,7 +32,7 @@ export function getResolved(
   }
 }
 
-export function TiroResolver(
+export function TiroUIResolver(
   options: TiroResolverOptions = {}
 ): ComponentResolver[] {
   return [

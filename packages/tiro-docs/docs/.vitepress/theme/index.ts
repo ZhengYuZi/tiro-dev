@@ -1,10 +1,11 @@
+// @ts-ignore
 import DefaultTheme from 'vitepress/theme'
 import Layout from '../src/components/Layout.vue'
 import '../src/style/custom.css'
 import '../src/style/mweb-lark.css'
 import ti from '@tiro/ui'
 import Example from '../src/components/example.vue'
-import store from '../src/store/index.ts'
+import store from '../src/store/index'
 
 const NotFound = DefaultTheme.NotFound
 

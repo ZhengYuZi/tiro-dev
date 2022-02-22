@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue"
-import useActiveLink from "../hooks/active-link.js"
+import useActiveLink from "../hooks/active-link"
 
 const props = defineProps({
   headers: {
