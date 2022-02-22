@@ -28,7 +28,6 @@
 
 <script setup lang="ts">
 import { PropType, Ref, ref } from "vue"
-import { IOptions, IOptionValue } from "../../types/select"
 import TiIcon from '@tiro/icons'
 
 const emit = defineEmits(["select", "update:value"])
@@ -36,7 +35,7 @@ const emit = defineEmits(["select", "update:value"])
 const isFocus: Ref<boolean> = ref(false)
 const isActive: Ref<number> = ref(-1)
 const actives: Ref<Array<number>> = ref([])
-const activesValue: Ref<Array<IOptionValue>> = ref([])
+const activesValue: Ref<Array<Select.IOptionValue>> = ref([])
 
 const props = defineProps({
   width: {
@@ -48,7 +47,7 @@ const props = defineProps({
     default: "请选择",
   },
   options: {
-    type: Array as PropType<IOptions>,
+    type: Array as PropType<Select.IOptions>,
     default: [],
   },
   disabled: {
@@ -60,7 +59,7 @@ const props = defineProps({
     default: false,
   },
   value: {
-    type: String as PropType<IOptionValue>,
+    type: String as PropType<Select.IOptionValue>,
     default: ''
   }
 })

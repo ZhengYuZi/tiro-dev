@@ -30,7 +30,6 @@
 
 <script setup lang="ts">
 import { onMounted, PropType, Ref, ref } from "vue"
-import { ITypes, IType } from "../../types/input"
 import TiIcon from '@tiro/icons'
 
 const emit = defineEmits([
@@ -45,14 +44,14 @@ const emit = defineEmits([
 const clearIsShow: Ref<boolean> = ref(false)
 const inputType: Ref<string> = ref('text')
 
-const types: ITypes = {
+const types: Input.ITypes = {
   text: "text",
   password: "password",
 }
 
 const props = defineProps({
   type: {
-    type: String as PropType<IType>,
+    type: String as PropType<Input.IType>,
     default: "text",
   },
   width: {

@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import { PropType, ref } from "vue"
-import { Fit } from '../../types/image'
 
 const isLoading = ref(true)
 
@@ -29,7 +28,7 @@ const props = defineProps({
         type: String
     },
     fit: {
-        type: String as PropType<Fit>
+        type: String as PropType<Image.Fit>
     }
 })
 

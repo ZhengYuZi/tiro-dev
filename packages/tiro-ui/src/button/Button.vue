@@ -15,11 +15,10 @@
 
 <script setup lang="ts">
 import { PropType } from "vue"
-import { BUTTON_TYPE } from "../../types/button"
 
 const props = defineProps({
   type: {
-    type: String as PropType<BUTTON_TYPE>,
+    type: String as PropType<Button.BUTTON_TYPE>,
     default: "default",
   },
   borderRadius: {
