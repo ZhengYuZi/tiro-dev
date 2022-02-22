@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import useClipboard from "vue-clipboard3"
+import { ref } from 'vue'
+import useClipboard from 'vue-clipboard3'
 
 const { toClipboard } = useClipboard()
 

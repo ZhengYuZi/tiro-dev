@@ -15,19 +15,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue"
-import Aside from "./Aside.vue"
-import Headers from "./Headers.vue"
-import Navbar from "./Navbar.vue"
-import Arrow from "./Arrow.vue"
-import theme from "../../theme/index"
-import { useRoute, useData } from "vitepress"
+import { ref, onMounted, watch } from 'vue'
+import Aside from './Aside.vue'
+import Headers from './Headers.vue'
+import Navbar from './Navbar.vue'
+import Arrow from './Arrow.vue'
+import theme from '../../theme/index'
+import { useRoute, useData } from 'vitepress'
 const route = useRoute()
 const contents = ref([])
 const { page, site } = useData()
 const headers = ref([])
 const nav = ref({})
-const path = ref("")
+const path = ref('')
 
 watch(route, (val) => {
   changeValue(val)
@@ -45,7 +45,7 @@ function changeValue(val) {
 }
 
 function findValue(obj: object, str: string) {
-  const slash = "/"
+  const slash = '/'
   const baseRoute = slash + route.path.split(slash)[1]
   return obj[baseRoute] || []
 }

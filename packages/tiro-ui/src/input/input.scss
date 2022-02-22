@@ -1,70 +1,73 @@
 .ti-input {
-    width: 100%;
+  width: 100%;
 
-    &.is-disabled {
-        .ti-input-box {
-            .ti-input--inner {
-                cursor: not-allowed;
-            }
-        }
-    }
-
+  &.is-disabled {
     .ti-input-box {
-        width: 100%;
-        position: relative;
-
-        .ti-input--inner {
-            width: 100%;
-            height: 35px;
-            line-height: 35px;
-            font-size: $ti-font-14;
-            box-sizing: border-box;
-            outline: none;
-            border-radius: $ti-radius-base;
-            border: 1px solid $ti-c;
-            padding: 0px 10px;
-
-            &.is-clearable {
-                padding-right: 25px;
-            }
-
-            &.is-password {
-                padding-right: 25px;
-            }
-
-            &:focus {
-                border: 2px solid $ti-base;
-            }
-
-            &::-webkit-input-placeholder{
-                color: $ti-c;
-            }
-            &::-moz-placeholder{   /* Mozilla Firefox 19+ */
-                color: $ti-c;
-            }
-            &:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-                color: $ti-c;
-            }
-            &:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-                color: $ti-c;
-            }
-        }
-
-        .ti-input--icon {
-            height: 35px;
-            line-height: 35px;
-            color: $ti-c;
-            font-size: $ti-font-14;
-            cursor: pointer;
-            position: absolute;
-            top: 0;
-            right: 7px;
-
-            >*{
-                &:hover {
-                    color: $ti-a;
-                }
-            }
-        }
+      .ti-input--inner {
+        cursor: not-allowed;
+      }
     }
+  }
+
+  .ti-input-box {
+    width: 100%;
+    position: relative;
+
+    .ti-input--inner {
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      font-size: $ti-font-14;
+      box-sizing: border-box;
+      outline: none;
+      border-radius: $ti-radius-base;
+      border: 1px solid $ti-c;
+      padding: 0px 10px;
+
+      &.is-clearable {
+        padding-right: 25px;
+      }
+
+      &.is-password {
+        padding-right: 25px;
+      }
+
+      &:focus {
+        border: 2px solid $ti-base;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $ti-c;
+      }
+      &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $ti-c;
+      }
+      &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $ti-c;
+      }
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $ti-c;
+      }
+    }
+
+    .ti-input--icon {
+      height: 35px;
+      line-height: 35px;
+      color: $ti-c;
+      font-size: $ti-font-14;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 7px;
+
+      > * {
+        &:hover {
+          color: $ti-a;
+        }
+      }
+    }
+  }
 }

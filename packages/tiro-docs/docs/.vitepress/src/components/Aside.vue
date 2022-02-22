@@ -21,28 +21,28 @@
     class="sidebar-mask--"
     v-if="asideStore.open"
     @click="asideStore.updateClose()"
-    @touchmove = "touchmove"
+    @touchmove="touchmove"
   ></div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vitepress"
-import { useAsideStore } from "../store/useStore.ts"
+import { useRouter } from 'vitepress'
+import { useAsideStore } from '../store/useStore.ts'
 
 const asideStore = useAsideStore()
 const router = useRouter()
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array
   },
   path: {
-    type: String,
-  },
+    type: String
+  }
 })
-const suffix = ".html"
+const suffix = '.html'
 
 const isActive = (link) => {
-  return link + suffix === props.path ? "active" : ""
+  return link + suffix === props.path ? 'active' : ''
 }
 
 const LinkTo = (url, suff = suffix) => {
@@ -50,7 +50,7 @@ const LinkTo = (url, suff = suffix) => {
   router.go(url + suff)
 }
 
-const touchmove = (e)=>{
+const touchmove = (e) => {
   e.preventDefault()
 }
 </script>

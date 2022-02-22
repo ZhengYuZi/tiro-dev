@@ -16,13 +16,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue"
-import useActiveLink from "../hooks/active-link"
+import { ref, onMounted, watch } from 'vue'
+import useActiveLink from '../hooks/active-link'
 
 const props = defineProps({
   headers: {
-    type: Array,
-  },
+    type: Array
+  }
 })
 
 const activeIndex = ref()

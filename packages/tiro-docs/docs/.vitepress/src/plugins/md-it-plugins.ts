@@ -1,28 +1,28 @@
-import container from "markdown-it-container"
+import container from 'markdown-it-container'
 
-const containerPlugin = (klass = "show") => {
+const containerPlugin = (klass = 'show') => {
   return [
     container,
     klass,
     {
       render(tokens, idx) {
         const token = tokens[idx]
-        let content = ""
+        let content = ''
         if (token.nesting === 1) {
           let target = idx + 1
           while (tokens[target].nesting === 0) {
-            if (tokens[target].type === "html_block") {
+            if (tokens[target].type === 'html_block') {
               content += `${tokens[target].content}\n`
-              tokens[target].content = ""
+              tokens[target].content = ''
             }
             target++
           }
           return `<ti-example>\n<template v-slot:component>\n${content}</template>\n`
         } else {
-          return "</ti-example>"
+          return '</ti-example>'
         }
-      },
-    },
+      }
+    }
   ]
 }
 

@@ -1,97 +1,97 @@
-.ti-button{
-    display: inline-block;
-    cursor: pointer;
-    user-select: none;
-    touch-action: manipulation;
-    font-size: $ti-font-14;
-    font-weight: 500;
-    border: none;
-    border-radius: $ti-radius-base;
-    padding: 8px 30px;
-    box-sizing: border-box;
-    text-transform: none;
+.ti-button {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  font-size: $ti-font-14;
+  font-weight: 500;
+  border: none;
+  border-radius: $ti-radius-base;
+  padding: 8px 30px;
+  box-sizing: border-box;
+  text-transform: none;
 
-    .ti-button--inner{
-        display: flex;
-        align-items: center;
+  .ti-button--inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &.ti-button--default {
+    border: 1px solid #ccc;
+    background-color: transparent;
+  }
+
+  &.ti-button--light {
+    background-color: $ti-light-blue;
+    border: 1px solid $ti-base;
+    color: $ti-base;
+  }
+
+  &.ti-button--fill {
+    background-color: $ti-base;
+    border: 1px solid $ti-base;
+    color: $ti-white;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    &.ti-button--default {
+      border: 1px solid $ti-c;
+      color: $ti-c;
     }
-
-    &.ti-button--default{
-        border: 1px solid #ccc;
-        background-color: transparent;
+    &.ti-button--light {
+      color: #5d82d363;
+      border: 1px solid $ti-shadow-blue;
+      background-color: #5d82d323;
     }
+    &.ti-button--fill {
+      color: $ti-white;
+      background-color: $ti-base-b;
+      border: 1px solid $ti-base-b;
+    }
+  }
 
-    &.ti-button--light{
+  &:not(.is-disabled) {
+    &.ti-button--default {
+      &:hover {
+        border: 1px solid #5d82d369;
         background-color: $ti-light-blue;
-        border: 1px solid $ti-base;
         color: $ti-base;
-    }
-
-    &.ti-button--fill{
-        background-color: $ti-base;
+      }
+      &:focus {
+        border: 1px solid #5d82d369;
+        background-color: $ti-light-blue;
+        color: $ti-base;
+      }
+      &:active {
         border: 1px solid $ti-base;
+      }
+    }
+
+    &.ti-button--light {
+      &:hover {
+        background-color: $ti-base;
         color: $ti-white;
+      }
+      &:focus {
+        background-color: $ti-base;
+        color: $ti-white;
+      }
+      &:active {
+        filter: brightness(110%);
+      }
     }
 
-    &.is-disabled{
-        cursor: not-allowed;
-        &.ti-button--default{
-            border: 1px solid $ti-c;
-            color: $ti-c;
-        }
-        &.ti-button--light{
-            color: #5d82d363;
-            border: 1px solid $ti-shadow-blue;
-            background-color: #5d82d323;
-        }
-        &.ti-button--fill{
-            color: $ti-white;
-            background-color: $ti-base-b;
-            border: 1px solid $ti-base-b;
-        }
+    &.ti-button--fill {
+      &:hover {
+        filter: brightness(110%);
+      }
+      &:focus {
+        filter: brightness(110%);
+      }
+      &:active {
+        filter: brightness(100%);
+      }
     }
-
-    &:not(.is-disabled){
-        &.ti-button--default{
-            &:hover{
-                border: 1px solid #5d82d369;
-                background-color: $ti-light-blue;
-                color: $ti-base;
-            }
-            &:focus{
-                border: 1px solid #5d82d369;
-                background-color: $ti-light-blue;
-                color: $ti-base;
-            }
-            &:active{
-                border: 1px solid $ti-base;
-            }
-        }
-    
-        &.ti-button--light{
-            &:hover{
-                background-color: $ti-base;
-                color: $ti-white;
-            }
-            &:focus{
-                background-color: $ti-base;
-                color: $ti-white;
-            }
-            &:active{
-                filter: brightness(110%);
-            }
-        }
-    
-        &.ti-button--fill{
-            &:hover{
-                filter: brightness(110%);
-            }
-            &:focus{
-                filter: brightness(110%);
-            }
-            &:active{
-                filter: brightness(100%);
-            }
-        }
-    }
+  }
 }

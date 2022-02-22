@@ -14,20 +14,20 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue"
+import { PropType } from 'vue'
 
 const props = defineProps({
   type: {
     type: String as PropType<Button.BUTTON_TYPE>,
-    default: "default",
+    default: 'default'
   },
   borderRadius: {
-    type: Number,
+    type: Number
   },
   disabled: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 })
 </script>
 

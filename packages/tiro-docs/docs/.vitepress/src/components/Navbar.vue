@@ -14,7 +14,12 @@
       </div>
       <div class="navbar-content">
         <div class="navbar-content--inner">
-          <ti-icon :name="mode" :size="22" @click="toggleMode" title="切换模式（dark or light）"></ti-icon>
+          <ti-icon
+            :name="mode"
+            :size="22"
+            @click="toggleMode"
+            title="切换模式（dark or light）"
+          ></ti-icon>
           <template v-for="item in nav?.themeConfig?.nav" :key="item.link">
             <a :href="item.link" :class="isNav(item)">{{ item.text }}</a>
           </template>
@@ -29,7 +34,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useAsideStore } from "../store/useStore.ts"
+import { useAsideStore } from '../store/useStore.ts'
 const asideStore = useAsideStore()
 const sun = 'icon-sun'
 const moon = 'icon-moon'
@@ -37,19 +42,19 @@ const mode = ref(moon)
 
 const props = defineProps({
   nav: {
-    type: Object,
+    type: Object
   },
   path: {
-    type: String,
+    type: String
   },
   isShow: {
-    type: Number,
-  },
+    type: Number
+  }
 })
 
 onMounted(() => {
   const html = document.documentElement
-  const modeValue = localStorage.getItem("mode");
+  const modeValue = localStorage.getItem('mode')
   if (modeValue) {
     mode.value = modeValue
     if (modeValue === sun) html.classList.add('dark')
@@ -57,7 +62,7 @@ onMounted(() => {
 })
 
 const isNav = (item) => {
-  if (item.base && (props.path.includes(item.base))) {
+  if (item.base && props.path.includes(item.base)) {
     return 'active'
   }
   return `${item.link}.html` === props.path ? 'active' : ''
@@ -72,9 +77,8 @@ const toggleMode = () => {
     mode.value = moon
     html.classList.remove('dark')
   }
-  localStorage.setItem("mode", mode.value);
+  localStorage.setItem('mode', mode.value)
 }
-
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
-export const throttle = (fn:Function, time:number) => {
-  let flag:boolean = true
+export const throttle = (fn: Function, time: number) => {
+  let flag: boolean = true
   return function () {
     if (!flag) return
     flag = false

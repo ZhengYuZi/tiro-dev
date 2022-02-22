@@ -1,6 +1,6 @@
 <template>
   <div class="button-demo">
-      <ti-button :type="item" v-for="item in type" :key="item">BUTTON</ti-button>
+    <ti-button :type="item" v-for="item in type" :key="item">BUTTON</ti-button>
   </div>
 </template>
 
@@ -10,9 +10,9 @@ const type = ['default', 'fill', 'light']
 
 <style lang="scss" scoped>
 .button-demo {
-    & > * {
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
+  & > * {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
 </style>

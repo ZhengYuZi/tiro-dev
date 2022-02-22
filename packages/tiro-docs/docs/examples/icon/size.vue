@@ -9,8 +9,8 @@
 
 <style lang="scss" scoped>
 .icon-size-demo {
-    & > * {
-        margin-right: 10px;
-    }
+  & > * {
+    margin-right: 10px;
+  }
 }
 </style>

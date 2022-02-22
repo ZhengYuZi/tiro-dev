@@ -1,43 +1,43 @@
-.ti-card{
+.ti-card {
+  height: auto;
+  border: 1px solid $ti-e;
+  border-radius: $ti-radius-base;
+  &.always-shadow {
+    box-shadow: 0 2px 12px 0 $ti-e;
+    &.tiro {
+      box-shadow: 0 2px 12px 0 $ti-shadow-blue !important;
+    }
+  }
+  &.hover-shadow {
+    &:hover {
+      box-shadow: 0 2px 12px 0 $ti-e;
+      &.tiro {
+        box-shadow: 0 2px 12px 0 $ti-shadow-blue !important;
+      }
+    }
+  }
+  &.never-shadow {
+    box-shadow: none !important;
+    &.tiro {
+      box-shadow: none !important;
+    }
+  }
+  &.tiro {
+    border: 2px solid $ti-base !important;
+    .ti-card--inner {
+      .ti-card--header {
+        border-bottom: 2px solid $ti-base !important;
+      }
+    }
+  }
+  .ti-card--inner {
     height: auto;
-    border: 1px solid $ti-e;
-    border-radius: $ti-radius-base;
-    &.always-shadow{
-        box-shadow: 0 2px 12px 0 $ti-e;
-        &.tiro{
-            box-shadow: 0 2px 12px 0 $ti-shadow-blue !important;
-        }
+    .ti-card--header {
+      padding: 15px;
+      border-bottom: 1px solid $ti-e;
     }
-    &.hover-shadow{
-        &:hover{
-            box-shadow: 0 2px 12px 0 $ti-e;
-            &.tiro{
-                box-shadow: 0 2px 12px 0 $ti-shadow-blue !important;
-            }
-        }
+    .el-card__body {
+      padding: 15px;
     }
-    &.never-shadow{
-        box-shadow: none !important;
-        &.tiro{
-            box-shadow: none !important;
-        }
-    }
-    &.tiro{
-        border: 2px solid $ti-base !important;
-        .ti-card--inner{
-            .ti-card--header{
-                border-bottom: 2px solid $ti-base !important;
-            }
-        }
-    }
-    .ti-card--inner{
-        height: auto;
-        .ti-card--header{
-            padding: 15px;
-            border-bottom: 1px solid $ti-e;
-        }
-        .el-card__body{
-            padding: 15px;
-        }
-    }
+  }
 }

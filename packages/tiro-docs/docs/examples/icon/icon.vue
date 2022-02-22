@@ -16,36 +16,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
-import useClipboard from "vue-clipboard3"
+import { ref } from 'vue'
+import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 
 const icons = [
-  { name: "列表", code: "icon-list" },
-  { name: "github", code: "icon-github" },
-  { name: "代码", code: "icon-code" },
-  { name: "复制", code: "icon-copy" },
-  { name: "眼睛", code: "icon-eye" },
-  { name: "删除", code: "icon-delete" },
-  { name: "箭头右", code: "icon-arrow-right" },
-  { name: "箭头左", code: "icon-arrow-left" },
-  { name: "下拉", code: "icon-drop-down" },
-  { name: "搜索", code: "icon-search" },
-  { name: "月亮", code: "icon-moon" },
-  { name: "太阳", code: "icon-sun" },
+  { name: '列表', code: 'icon-list' },
+  { name: 'github', code: 'icon-github' },
+  { name: '代码', code: 'icon-code' },
+  { name: '复制', code: 'icon-copy' },
+  { name: '眼睛', code: 'icon-eye' },
+  { name: '删除', code: 'icon-delete' },
+  { name: '箭头右', code: 'icon-arrow-right' },
+  { name: '箭头左', code: 'icon-arrow-left' },
+  { name: '下拉', code: 'icon-drop-down' },
+  { name: '搜索', code: 'icon-search' },
+  { name: '月亮', code: 'icon-moon' },
+  { name: '太阳', code: 'icon-sun' }
 ]
-const dataContentBefore = ref("点击复制")
-const copy = async(Msg) => {
+const dataContentBefore = ref('点击复制')
+const copy = async (Msg) => {
   try {
     await toClipboard(Msg)
-    dataContentBefore.value = "复制成功"
+    dataContentBefore.value = '复制成功'
   } catch (e) {
     console.error(e)
-    dataContentBefore.value = "复制失败"
+    dataContentBefore.value = '复制失败'
   }
 }
 const changeContent = () => {
-  dataContentBefore.value = "点击复制"
+  dataContentBefore.value = '点击复制'
 }
 </script>
 

@@ -1,5 +1,9 @@
 <template>
-  <div class="ti-select" :class="disabled ? 'is-disabled' : ''" :style="`width:${width}`">
+  <div
+    class="ti-select"
+    :class="disabled ? 'is-disabled' : ''"
+    :style="`width:${width}`"
+  >
     <div class="ti-select-box" @click="downArrowTurn">
       <input
         class="ti-select--inner"
@@ -10,7 +14,10 @@
         @blur="handleBlur"
         :disabled="disabled"
       />
-      <ti-icon class="icon-drop-down" :class="isFocus ? 'is-reserve' : ''"></ti-icon>
+      <ti-icon
+        class="icon-drop-down"
+        :class="isFocus ? 'is-reserve' : ''"
+      ></ti-icon>
     </div>
     <div class="ti-select-dropdown" v-show="isFocus">
       <div class="ti-select-options ti-scrollbar">
@@ -20,17 +27,19 @@
           v-for="(item, index) in options"
           :key="item.label + item.value"
           @mousedown="handleSelect(index)"
-        >{{ item.label }}</div>
+        >
+          {{ item.label }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, Ref, ref } from "vue"
+import { PropType, Ref, ref } from 'vue'
 import TiIcon from '@tiro/icons'
 
-const emit = defineEmits(["select", "update:value"])
+const emit = defineEmits(['select', 'update:value'])
 
 const isFocus: Ref<boolean> = ref(false)
 const isActive: Ref<number> = ref(-1)
@@ -40,23 +49,23 @@ const activesValue: Ref<Array<Select.IOptionValue>> = ref([])
 const props = defineProps({
   width: {
     type: String,
-    default: "100%",
+    default: '100%'
   },
   placeholder: {
     type: String,
-    default: "请选择",
+    default: '请选择'
   },
   options: {
     type: Array as PropType<Select.IOptions>,
-    default: [],
+    default: []
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: false
   },
   multiple: {
     type: Boolean,
-    default: false,
+    default: false
   },
   value: {
     type: String as PropType<Select.IOptionValue>,
@@ -80,8 +89,8 @@ const handleSelect = (index: number) => {
 const singleSelect = (index: number) => {
   isActive.value = index
   const select = props.options[index].value
-  emit("select", select)
-  emit("update:value", select)
+  emit('select', select)
+  emit('update:value', select)
 }
 
 const multipleSelect = (index: number) => {
@@ -96,24 +105,24 @@ const multipleSelect = (index: number) => {
     activesValue.value.splice(activeIndex, 1)
   }
 
-  emit("select", activesValue.value)
-  emit("update:value", activesValue.value)
+  emit('select', activesValue.value)
+  emit('update:value', activesValue.value)
 }
 
-const handleActive = (index: number): "active" | "" => {
-  if (!props.multiple) return isActive.value === index ? "active" : ""
-  return actives.value.includes(index) ? "active" : ""
+const handleActive = (index: number): 'active' | '' => {
+  if (!props.multiple) return isActive.value === index ? 'active' : ''
+  return actives.value.includes(index) ? 'active' : ''
 }
 
 const inputValue = (): string => {
   if (!props.multiple) return props.options[isActive.value]?.label
   return actives.value.reduce((total, item) => {
-    return props.options[item]?.label + `${total ? "," : ""}` + total
-  }, "")
+    return props.options[item]?.label + `${total ? ',' : ''}` + total
+  }, '')
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/base.scss";
-@import "./select.scss";
+@import '../../style/base.scss';
+@import './select.scss';
 </style>

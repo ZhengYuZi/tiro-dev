@@ -91,7 +91,7 @@
 .content xmp,
 .content plaintext,
 .content listing {
-  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, "Courier New";
+  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, 'Courier New';
 }
 .content blockquote > :first-child {
   margin-top: 0;
@@ -145,7 +145,7 @@
 .content kbd,
 .content tt,
 .content samp {
-  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, "Courier New";
+  font-family: monospace, Menlo-Regular, Menlo, Monaco, Consolas, 'Courier New';
 }
 .content mark {
   padding: 0.2em 0;
@@ -199,7 +199,7 @@ td {
   border-bottom: 1px solid rgb(239, 239, 245);
 }
 
-.content div[id^="mweb-chart-ele"] svg {
+.content div[id^='mweb-chart-ele'] svg {
   background-color: white;
 }
 
@@ -265,12 +265,12 @@ td {
   padding: 0px;
   list-style: none;
 }
-.content ul li:not([class*="task-list-item"]) {
+.content ul li:not([class*='task-list-item']) {
   word-wrap: break-all;
   padding-left: 22px;
 }
-.content ul li:not([class*="task-list-item"]):before {
-  content: "•";
+.content ul li:not([class*='task-list-item']):before {
+  content: '•';
   color: #3370ff;
   display: inline-block;
   margin-left: -20px;
@@ -282,18 +282,18 @@ td {
 }
 .content
   ul
-  li:not([class*="task-list-item"])
-  li:not([class*="task-list-item"])::before {
-  content: "◦";
+  li:not([class*='task-list-item'])
+  li:not([class*='task-list-item'])::before {
+  content: '◦';
   transform: scale(1);
   font-weight: 700;
 }
 .content
   ul
-  li:not([class*="task-list-item"])
-  li:not([class*="task-list-item"])
-  li:not([class*="task-list-item"])::before {
-  content: "▪";
+  li:not([class*='task-list-item'])
+  li:not([class*='task-list-item'])
+  li:not([class*='task-list-item'])::before {
+  content: '▪';
   transform: scale(1.25);
   font-weight: normal;
 }
@@ -309,7 +309,7 @@ td {
   position: relative;
 }
 .content ol li:before {
-  content: counter(ol_counter) ".";
+  content: counter(ol_counter) '.';
   counter-increment: ol_counter;
   color: #3370ff;
   position: absolute;
@@ -346,7 +346,7 @@ td {
   -webkit-appearance: none;
 }
 .content .task-list-item input:before {
-  content: " ";
+  content: ' ';
   display: inline-block;
   position: relative;
   line-height: normal;

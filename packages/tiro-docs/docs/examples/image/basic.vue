@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-const fits = ["fill", "contain", "cover", "none", "scale-down"]
-const url = "/cat.jpg"
+const fits = ['fill', 'contain', 'cover', 'none', 'scale-down']
+const url = '/cat.jpg'
 </script>
 
 <style lang="scss" scoped>

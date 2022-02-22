@@ -26,21 +26,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onUpdated } from "vue"
-import { useRouter } from "vitepress"
+import { ref, onUpdated } from 'vue'
+import { useRouter } from 'vitepress'
 const router = useRouter()
 
-const suffix = ".html"
+const suffix = '.html'
 const previous = ref()
 const next = ref()
 
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array
   },
   path: {
-    type: String,
-  },
+    type: String
+  }
 })
 
 onUpdated(() => {

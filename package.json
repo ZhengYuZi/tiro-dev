@@ -6,15 +6,32 @@
     "dev": "pnpm dev --filter \"@tiro/project\"",
     "build": "pnpm build --filter \"@tiro/project\"",
     "dev:docs": "pnpm dev --filter \"@tiro/docs\"",
-    "build:docs": "pnpm build --filter \"@tiro/docs\""
+    "build:docs": "pnpm build --filter \"@tiro/docs\"",
+    "prettier": "prettier --write .",
+    "lint": "eslint"
   },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": "eslint --fix"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "sass": "^1.48.0",
-    "vue": "^3.2.6"
+    
   },
   "devDependencies": {
+    "vue": "^3.2.6",
     "@vue/compiler-sfc": "^3.2.6",
     "typescript": "^4.3.2",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.2.2",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.48.0",
+    "vue-eslint-parser": "^8.2.0"
   }
 }

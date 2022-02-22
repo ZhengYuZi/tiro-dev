@@ -1,4 +1,3 @@
-
 // base color
 $ti-base: #5d82d3;
 $ti-base-a: rgb(126, 153, 211);
@@ -7,11 +6,11 @@ $ti-base-c: rgb(172, 194, 238);
 $ti-base-d: rgb(193, 212, 250);
 $ti-shadow-blue: rgba(93, 130, 211, 0.3);
 $ti-light-blue: rgb(193, 212, 250, 0.2);
-$ti-white: #FFFFFF;
+$ti-white: #ffffff;
 $ti-black: #000000;
-$ti-c: #CCCCCC;
-$ti-a: #AAAAAA;
-$ti-e: #EEEEEE;
+$ti-c: #cccccc;
+$ti-a: #aaaaaa;
+$ti-e: #eeeeee;
 
 // font color
 $ti-font-12: 12px;
@@ -21,22 +20,21 @@ $ti-font-16: 16px;
 // border-radius
 $ti-radius-base: 2px;
 
-
 .ti-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:hover {
     &::-webkit-scrollbar {
-        display: none;
+      display: block;
+      width: 6px;
+      height: 1px;
     }
 
-    &:hover {
-        &::-webkit-scrollbar {
-            display: block;
-            width: 6px;
-            height: 1px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            border-radius: 2px;
-            background: $ti-c;
-        }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background: $ti-c;
     }
+  }
 }

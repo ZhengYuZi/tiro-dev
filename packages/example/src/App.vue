@@ -6,10 +6,12 @@ const data = [
   {
     label: '苹果',
     value: 'apple'
-  }, {
+  },
+  {
     label: '车',
     value: 'car'
-  }, {
+  },
+  {
     label: '水',
     value: 'water'
   }
