@@ -1,8 +1,7 @@
 <template>
   <span
-    class="ti-icon"
-    :class="name"
-    :style="`font-size:${size}px;color:${color};`"
+    :class="['ti-icon', name]"
+    :style="{ fontSize: size + 'px', color: color }"
   ></span>
 </template>
 

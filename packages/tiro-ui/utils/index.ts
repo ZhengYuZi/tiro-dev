@@ -6,13 +6,13 @@
  */
 export const debounce = (
   func: Function,
-  delay: number = 100,
-  immediate: boolean = false
+  delay = 100,
+  immediate = false
 ): Function => {
-  let timer: number | undefined
+  let timer: any
 
   return function (this: unknown, ...args: any[]) {
-    let that = this
+    const that = this
     if (immediate) {
       func.apply(that, args) // 确保引用函数的指向正确，并且函数的参数也不变
       immediate = false

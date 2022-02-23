@@ -1,7 +1,7 @@
 <template>
-  <div class="ti-card" :class="[tiro ? 'tiro' : '', shadow + '-shadow']">
+  <div :class="['ti-card', tiro ? 'tiro' : '', shadow + '-shadow']">
     <div class="ti-card--inner">
-      <div class="ti-card--header" v-if="$slots.header">
+      <div v-if="$slots.header" class="ti-card--header">
         <slot name="header">
           <span>标题</span>
         </slot>

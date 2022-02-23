@@ -1,8 +1,7 @@
 <template>
   <div
-    class="ti-select"
-    :class="disabled ? 'is-disabled' : ''"
-    :style="`width:${width}`"
+    :class="['ti-select', disabled ? 'is-disabled' : '']"
+    :style="{ width: width }"
   >
     <div class="ti-select-box" @click="downArrowTurn">
       <input
@@ -11,21 +10,20 @@
         readonly
         :value="inputValue()"
         :placeholder="placeholder"
-        @blur="handleBlur"
         :disabled="disabled"
+        @blur="handleBlur"
+        @input="inputValue()"
       />
       <ti-icon
-        class="icon-drop-down"
-        :class="isFocus ? 'is-reserve' : ''"
+        :class="['icon-drop-down', isFocus ? 'is-reserve' : '']"
       ></ti-icon>
     </div>
-    <div class="ti-select-dropdown" v-show="isFocus">
+    <div v-show="isFocus" class="ti-select-dropdown">
       <div class="ti-select-options ti-scrollbar">
         <div
-          class="ti-select-option-item"
-          :class="handleActive(index)"
           v-for="(item, index) in options"
           :key="item.label + item.value"
+          :class="['ti-select-option-item', handleActive(index)]"
           @mousedown="handleSelect(index)"
         >
           {{ item.label }}
@@ -39,7 +37,7 @@
 import { PropType, Ref, ref } from 'vue'
 import TiIcon from '@tiro/icons'
 
-const emit = defineEmits(['select', 'update:value'])
+const emit = defineEmits(['select', 'update:modelValue'])
 
 const isFocus: Ref<boolean> = ref(false)
 const isActive: Ref<number> = ref(-1)
@@ -57,7 +55,7 @@ const props = defineProps({
   },
   options: {
     type: Array as PropType<Select.IOptions>,
-    default: []
+    default: () => []
   },
   disabled: {
     type: Boolean,
@@ -67,8 +65,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  value: {
-    type: String as PropType<Select.IOptionValue>,
+  modelValue: {
+    type: [String, Boolean, Number, Array] as PropType<
+      Select.IOptionValue | Select.IOptionValue[]
+    >,
     default: ''
   }
 })
@@ -90,7 +90,7 @@ const singleSelect = (index: number) => {
   isActive.value = index
   const select = props.options[index].value
   emit('select', select)
-  emit('update:value', select)
+  emit('update:modelValue', select)
 }
 
 const multipleSelect = (index: number) => {
@@ -106,7 +106,7 @@ const multipleSelect = (index: number) => {
   }
 
   emit('select', activesValue.value)
-  emit('update:value', activesValue.value)
+  emit('update:modelValue', activesValue.value)
 }
 
 const handleActive = (index: number): 'active' | '' => {
@@ -117,7 +117,7 @@ const handleActive = (index: number): 'active' | '' => {
 const inputValue = (): string => {
   if (!props.multiple) return props.options[isActive.value]?.label
   return actives.value.reduce((total, item) => {
-    return props.options[item]?.label + `${total ? ',' : ''}` + total
+    return `${props.options[item]?.label}${total ? ',' : ''}${total}`
   }, '')
 }
 </script>

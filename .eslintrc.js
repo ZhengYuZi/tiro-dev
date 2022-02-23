@@ -54,6 +54,9 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-this-alias': 'off',
+    '@typescript-eslint/ban-types': 'off',
 
     // vue
     'vue/no-v-html': 'off',

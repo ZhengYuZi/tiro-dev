@@ -1,9 +1,9 @@
 <template>
   <div class="icon-demo">
     <div
-      class="icon-demo-item"
       v-for="item in icons"
       :key="item.code"
+      class="icon-demo-item"
       :data-content-before="dataContentBefore"
       @click="copy(item.code)"
       @mouseleave="changeContent"

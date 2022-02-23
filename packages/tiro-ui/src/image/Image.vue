@@ -1,6 +1,6 @@
 <template>
   <div class="ti-image">
-    <div class="ti-image-error" v-if="!isLoading && $slots.placeholder">
+    <div v-if="!isLoading && $slots.placeholder" class="ti-image-error">
       <slot name="placeholder">
         <span v-if="alt">{{ alt }}</span>
         <span>加载失败</span>

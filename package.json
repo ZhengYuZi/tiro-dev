@@ -1,16 +1,21 @@
 {
-  "name": "my-vue-app",
+  "name": "tiro",
   "author": "ZhengYuZi <381740310@qq.com>",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
+  "repository": "https://github.com/ZhengYuZi/tiro-dev",
+  "bugs": { 
+    "url" : "https://github.com/ZhengYuZi/tiro-dev/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "pnpm dev --filter \"@tiro/project\"",
     "build": "pnpm build --filter \"@tiro/project\"",
     "dev:docs": "pnpm dev --filter \"@tiro/docs\"",
     "build:docs": "pnpm build --filter \"@tiro/docs\"",
     "prettier": "prettier --write .",
-    "lint": "eslint",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx",
     "prepare": "husky install",
     "commit": "cz"
   },

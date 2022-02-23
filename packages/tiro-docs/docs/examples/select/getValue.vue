@@ -4,7 +4,7 @@
     <span>选中值：{{ selectVal }}</span>
   </div>
   <div class="select-demo">
-    <ti-select width="200px" :options="data" v-model:value="selectVal2" />
+    <ti-select v-model:value="selectVal2" width="200px" :options="data" />
     <span>选中值：{{ selectVal2 }}</span>
   </div>
 </template>

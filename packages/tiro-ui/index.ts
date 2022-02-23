@@ -34,7 +34,7 @@ const components = [
 ]
 
 export default {
-  install: (app: App)=>{
+  install: (app: App) => {
     components.map((ti) => {
       app.component(ti.name, ti.component)
     })

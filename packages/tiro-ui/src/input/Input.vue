@@ -1,37 +1,36 @@
 <template>
   <div
-    class="ti-input"
-    :class="[disabled ? 'is-disabled' : null]"
+    :class="['ti-input', disabled ? 'is-disabled' : null]"
     :style="`width:${width}`"
   >
     <div class="ti-input-box">
       <input
-        class="ti-input--inner"
         :class="[
+          'ti-input--inner',
           clearable ? 'is-clearable' : null,
           type === types.password ? 'is-password' : null
         ]"
-        :style="`border-radius:${borderRadius}`"
+        :style="{ borderRadius: borderRadius + 'px' }"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
+        :maxlength="maxlength"
+        :value="modelValue"
+        :minlength="minlength"
         @focus="inputFocus"
         @blur="inputBlur"
         @change="inputChange"
         @input="inputEnter"
-        :value="modelValue"
-        :maxlength="maxlength"
-        :minlength="minlength"
       />
       <div class="ti-input--icon">
         <ti-icon
-          class="icon-delete"
           v-if="modelValue && clearable"
+          class="icon-delete"
           @mousedown.prevent="clearValue"
         ></ti-icon>
         <ti-icon
-          class="icon-eye"
           v-if="type === types.password && modelValue"
+          class="icon-eye"
           @mousedown.prevent="showWord"
         ></ti-icon>
       </div>
@@ -110,12 +109,12 @@ const inputBlur = (e: Event) => {
 }
 
 const inputChange = (e: Event) => {
-  const value = (<HTMLInputElement>e.target).value
+  const value = (e.target as HTMLInputElement).value
   emit('change', value)
 }
 
 const inputEnter = (e: Event) => {
-  const value = (<HTMLInputElement>e.target).value
+  const value = (e.target as HTMLInputElement).value
   emit('input', value)
   emit('update:modelValue', value)
 }

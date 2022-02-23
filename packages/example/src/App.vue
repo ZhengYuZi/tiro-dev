@@ -16,12 +16,16 @@ const data = [
     value: 'water'
   }
 ]
+
+const bindClick = () => {
+  //console.log(input.value)
+}
 </script>
 
 <template>
   <div class="main">
-    <ti-input width="200px" v-model="input" type="password"></ti-input>
-    <ti-select width="200px" multiple :options="data" />
+    <ti-select v-model="input" width="200px" :options="data" />
+    <ti-button @click="bindClick">click</ti-button>
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <button
-    class="ti-button"
-    :class="[`ti-button--${type}`, disabled ? 'is-disabled' : '']"
+    :class="['ti-button', `ti-button--${type}`, disabled ? 'is-disabled' : '']"
     :style="`border-radius:${borderRadius}px`"
     type="button"
   >
@@ -32,6 +31,6 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/base.scss";
-@import "./button.scss";
+@import '../../style/base.scss';
+@import './button.scss';
 </style>

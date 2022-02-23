@@ -1,6 +1,6 @@
 <template>
   <div class="button-demo">
-    <ti-button :type="item" v-for="item in type" :key="item">BUTTON</ti-button>
+    <ti-button v-for="item in type" :key="item" :type="item">BUTTON</ti-button>
   </div>
 </template>
 
