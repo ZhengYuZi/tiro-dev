@@ -13,7 +13,7 @@ module.exports = {
     browser: true,
     node: true
   },
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -25,13 +25,6 @@ module.exports = {
       files: ['*.ts', '*.vue'],
       rules: {
         'no-undef': 'off'
-      }
-    },
-    {
-      files: ['**/__tests__/**', '**/gulpfile.ts'],
-      rules: {
-        'no-console': 'off',
-        'vue/one-component-per-file': 'off'
       }
     }
   ],
@@ -61,10 +54,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { disallowTypeAnnotations: false }
-    ],
 
     // vue
     'vue/no-v-html': 'off',
