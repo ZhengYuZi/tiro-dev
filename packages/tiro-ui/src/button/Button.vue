@@ -1,6 +1,11 @@
 <template>
   <button
-    :class="['ti-button', `ti-button--${type}`, disabled ? 'is-disabled' : '']"
+    :class="[
+      'ti-button',
+      `ti-button--${type}`,
+      `${size}`,
+      disabled ? 'is-disabled' : ''
+    ]"
     :style="`border-radius:${borderRadius}px`"
     type="button"
   >
@@ -26,6 +31,10 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: String as PropType<Button.BUTTON_SIZE>,
+    default: 'default'
   }
 })
 </script>

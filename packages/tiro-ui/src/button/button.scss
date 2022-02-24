@@ -7,9 +7,20 @@
   font-weight: 500;
   border: none;
   border-radius: $ti-radius-base;
-  padding: 8px 30px;
   box-sizing: border-box;
   text-transform: none;
+
+  &.default {
+    padding: 5px 13px;
+  }
+
+  &.large {
+    padding: 7px 16px;
+  }
+
+  &.small {
+    padding: 3px 10px;
+  }
 
   .ti-button--inner {
     display: flex;

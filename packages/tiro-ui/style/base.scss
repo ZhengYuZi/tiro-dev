@@ -7,19 +7,29 @@ $ti-base-d: rgb(193, 212, 250);
 $ti-shadow-blue: rgba(93, 130, 211, 0.3);
 $ti-light-blue: rgb(193, 212, 250, 0.2);
 $ti-white: #ffffff;
-$ti-black: #000000;
+$ti-e: #eeeeee;
 $ti-c: #cccccc;
 $ti-a: #aaaaaa;
-$ti-e: #eeeeee;
+$ti-5d: #5d5d5d;
+$ti-black: #000000;
 
 // font color
 $ti-font-12: 12px;
 $ti-font-14: 14px;
 $ti-font-16: 16px;
+$ti-font-18: 18px;
 
 // border-radius
 $ti-radius-base: 2px;
 
+// z-index
+$ti-z-1: 1;
+$ti-z-1000: 1000;
+$ti-z-1001: 1001;
+$ti-z-2000: 2000;
+$ti-z-2001: 2001;
+
+// scroll-bar
 .ti-scrollbar {
   &::-webkit-scrollbar {
     display: none;

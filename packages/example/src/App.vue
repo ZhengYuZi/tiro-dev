@@ -1,6 +1,29 @@
+<template>
+  <div class="main">
+    <ti-modal
+      v-model="isOpen"
+      is-drag
+      width="300px"
+      title="Here is the Title"
+      @cancel="cancel"
+      @confirm="confirm"
+    >
+      <div>11111</div>
+    </ti-modal>
+    <ti-image
+      style="width: 100px; height: 100px"
+      url="http://1.15.247.77/cat.jpg"
+      fit="cover"
+    ></ti-image>
+    <ti-select v-model="input" width="200px" :options="data" />
+    <ti-button @click="bindClick">click</ti-button>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 const input = ref('')
+const isOpen = ref(false)
 
 const data = [
   {
@@ -18,16 +41,17 @@ const data = [
 ]
 
 const bindClick = () => {
-  //console.log(input.value)
+  isOpen.value = true
+}
+
+const cancel = () => {
+  //console.log('取消')
+}
+
+const confirm = () => {
+  //console.log('确定')
 }
 </script>
-
-<template>
-  <div class="main">
-    <ti-select v-model="input" width="200px" :options="data" />
-    <ti-button @click="bindClick">click</ti-button>
-  </div>
-</template>
 
 <style lang="scss">
 html,

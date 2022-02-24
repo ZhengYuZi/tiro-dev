@@ -1,0 +1,64 @@
+.ti-modal {
+  position: absolute;
+  
+  .ti-modal-mask {
+    position: fixed;
+    inset: 0;
+    z-index: $ti-z-2000;
+    background-color: #0000006e;
+  }
+
+  .ti-modal-warp {
+    position: fixed;
+    z-index: $ti-z-2001;
+    inset: 0;
+
+    .ti-modal-inner {
+      position: relative;
+      top: 35%;
+      max-width: 95vw;
+      min-width: 180px;
+      height: auto;
+      margin: 0 auto;
+      background-color: $ti-white;
+      border-radius: $ti-radius-base;
+
+      .ti-modal-title {
+        border-bottom: 1px solid $ti-e;
+        padding: 13px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title--inner {
+          max-width: 88%;
+          font-size: $ti-font-18;
+          font-weight: bold;
+          color: $ti-5d;
+        }
+
+        .icon-delete {
+          cursor: pointer;
+          &:hover {
+            color: $ti-black !important;
+          }
+        }
+      }
+
+      .ti-modal-content {
+        padding: 20px;
+      }
+
+      .ti-modal-footer {
+        text-align: right;
+        border-top: 1px solid $ti-e;
+        .footer--inner {
+          padding: 10px 20px;
+          & > * {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

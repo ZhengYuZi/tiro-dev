@@ -9,6 +9,7 @@ declare module 'vue' {
     TiIcon: typeof import('@tiro/ui/src/icon')['IconComponent']
     TiImage: typeof import('@tiro/ui/src/image')['ImageComponent']
     TiInput: typeof import('@tiro/ui/src/input')['InputComponent']
+    TiModal: typeof import('@tiro/ui/src/modal')['ModalComponent']
     TiSelect: typeof import('@tiro/ui/src/select')['SelectComponent']
   }
 }
