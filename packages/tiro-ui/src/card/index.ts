@@ -5,6 +5,6 @@ Card.install = function (app: App) {
   app.component('TiCard', Card)
 }
 
-export const CardComponent = Card
+export const TiCard = Card
 
 export default Card

@@ -9,6 +9,7 @@
       @confirm="confirm"
     >
       <div>11111</div>
+      <div>11111</div>
     </ti-modal>
     <ti-image
       style="width: 100px; height: 100px"

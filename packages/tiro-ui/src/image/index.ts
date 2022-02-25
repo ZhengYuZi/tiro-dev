@@ -5,6 +5,6 @@ Image.install = function (app: App) {
   app.component('TiImage', Image)
 }
 
-export const ImageComponent = Image
+export const TiImage = Image
 
 export default Image

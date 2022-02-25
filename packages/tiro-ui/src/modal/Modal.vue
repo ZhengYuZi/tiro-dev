@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import TiIcon from '@tiro/icons'
 import TiButton from '../button'
-import vDrag from '../../directive/drag'
+import vDrag from '../../directives/drag'
 
 const emit = defineEmits(['close', 'cancel', 'confirm', 'update:modelValue'])
 

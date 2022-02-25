@@ -5,6 +5,6 @@ Button.install = function (app: App) {
   app.component('TiButton', Button)
 }
 
-export const ButtonComponent = Button
+export const TiButton = Button
 
 export default Button

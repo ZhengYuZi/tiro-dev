@@ -27,7 +27,7 @@ export function getResolved(
 
   return {
     path: `@tiro/ui/src/${name.toLowerCase()}`,
-    importName: `${name}Component`,
+    importName: `Ti${name}`,
     sideEffects
   }
 }

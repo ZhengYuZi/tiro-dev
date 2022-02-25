@@ -5,6 +5,6 @@ Input.install = function (app: App) {
   app.component('TiInput', Input)
 }
 
-export const InputComponent = Input
+export const TiInput = Input
 
 export default Input

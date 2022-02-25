@@ -5,6 +5,6 @@ Icon.install = function (app: App) {
   app.component('TiIcon', Icon)
 }
 
-export const IconComponent = Icon
+export const TiIcon = Icon
 
 export default Icon

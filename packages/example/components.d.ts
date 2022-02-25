@@ -4,13 +4,13 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    TiButton: typeof import('@tiro/ui/src/button')['ButtonComponent']
+    TiButton: typeof import('@tiro/ui/src/button')['TiButton']
     TiCard: typeof import('@tiro/ui/src/card')['CardComponent']
     TiIcon: typeof import('@tiro/ui/src/icon')['IconComponent']
-    TiImage: typeof import('@tiro/ui/src/image')['ImageComponent']
+    TiImage: typeof import('@tiro/ui/src/image')['TiImage']
     TiInput: typeof import('@tiro/ui/src/input')['InputComponent']
-    TiModal: typeof import('@tiro/ui/src/modal')['ModalComponent']
-    TiSelect: typeof import('@tiro/ui/src/select')['SelectComponent']
+    TiModal: typeof import('@tiro/ui/src/modal')['TiModal']
+    TiSelect: typeof import('@tiro/ui/src/select')['TiSelect']
   }
 }
 
