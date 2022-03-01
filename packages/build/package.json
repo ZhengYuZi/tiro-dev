@@ -1,0 +1,7 @@
+{
+  "name": "build",
+  "private": true,
+  "version": "0.0.0",
+  "main": "tiro-ui.umd.js",
+  "module": "tiro-ui.es.js"
+}

@@ -2,28 +2,30 @@
   <div v-if="modelValue" :class="['ti-modal', isDrag ? 'is-drag' : '']">
     <div class="ti-modal-mask"></div>
     <div class="ti-modal-warp">
-      <div class="ti-modal-inner" :style="{ width: width }">
-        <div v-drag="{ isDrag: isDrag }" class="ti-modal-title">
-          <span class="title--inner">{{ title }}</span>
-          <ti-icon
-            name="icon-delete"
-            :size="20"
-            color="#8c8c8c"
-            @click="bindClose"
-          />
-        </div>
-        <div class="ti-modal-content">
-          <slot></slot>
-        </div>
-        <div class="ti-modal-footer">
-          <div class="footer--inner">
-            <ti-button @click="bindCancel">{{ cancelText }}</ti-button>
-            <ti-button type="fill" @click="bindConfirm">{{
-              confirmText
-            }}</ti-button>
+      <transition name="modal">
+        <div v-if="modelValue" class="ti-modal-inner" :style="{ width: width }">
+          <div v-drag="{ isDrag: isDrag }" class="ti-modal-title">
+            <span class="title--inner">{{ title }}</span>
+            <ti-icon
+              name="icon-delete"
+              :size="20"
+              color="#8c8c8c"
+              @click="bindClose"
+            />
+          </div>
+          <div class="ti-modal-content">
+            <slot></slot>
+          </div>
+          <div class="ti-modal-footer">
+            <div class="footer--inner">
+              <ti-button @click="bindCancel">{{ cancelText }}</ti-button>
+              <ti-button type="fill" @click="bindConfirm">
+                {{ confirmText }}
+              </ti-button>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>

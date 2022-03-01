@@ -6,10 +6,10 @@ import { TiroUIResolver } from './TiroUIResolver'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
-    Components({
-      resolvers: [TiroUIResolver()]
-    })
+    vue()
+    // Components({
+    //   resolvers: [TiroUIResolver()]
+    // })
   ],
   server: {
     host: 'localhost',

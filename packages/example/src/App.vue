@@ -11,11 +11,6 @@
       <div>11111</div>
       <div>11111</div>
     </ti-modal>
-    <ti-image
-      style="width: 100px; height: 100px"
-      url="http://1.15.247.77/cat.jpg"
-      fit="cover"
-    ></ti-image>
     <ti-select v-model="input" width="200px" :options="data" />
     <ti-button @click="bindClick">click</ti-button>
   </div>

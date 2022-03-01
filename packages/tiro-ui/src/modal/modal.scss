@@ -18,13 +18,13 @@
 
     .ti-modal-inner {
       position: relative;
-      //top: 35%;
       max-width: 95vw;
       min-width: 180px;
       height: auto;
       margin: 0 auto;
       background-color: $ti-white;
       border-radius: $ti-radius-base;
+      transform-origin: 0 0;
 
       .ti-modal-title {
         border-bottom: 1px solid $ti-e;
@@ -64,4 +64,17 @@
       }
     }
   }
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  transform: scale(0, 0);
+}
+.modal-leave-from,
+.modal-enter-to {
+  transform: scale(1, 1);
+}
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.2s;
 }
